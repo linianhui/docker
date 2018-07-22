@@ -6,4 +6,4 @@ FROM openzipkin/zipkin
 ENV STORAGE_TYPE=elasticsearch
 ENV ES_HOSTS=http://elasticsearch:9200
 
-EXPOSE 9411
+EXPOSE 9410 9411

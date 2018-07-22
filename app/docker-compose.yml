@@ -15,6 +15,7 @@ services:
     build: ./zipkin/
     restart: on-failure
     ports:
+      - "9410:9410"
       - "9411:9411"
 
 volumes:
