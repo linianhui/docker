@@ -1,0 +1,5 @@
+---
+# https://github.com/elastic/kibana-docker
+server.name: kibana
+server.host: "0"
+elasticsearch.url: http://elasticsearch:9200
