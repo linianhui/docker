@@ -2,17 +2,20 @@ version: '3'
 
 services:
 
-  # https://github.com/portainer/portainer
-  # https://hub.docker.com/r/portainer/portainer
   portainer:
-    image: portainer/portainer
+    build: ./portainer/
     restart: always
-    command: -H unix:///var/run/docker.sock
     ports:
       - "80:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+
+  zipkin:
+    build: ./zipkin/
+    restart: on-failure
+    ports:
+      - "9411:9411"
 
 volumes:
   portainer_data:
