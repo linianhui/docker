@@ -5,6 +5,8 @@ services:
   portainer:
     build: ./portainer/
     restart: always
+    networks:
+      - app_network
     ports:
       - "80:9000"
     volumes:
@@ -14,9 +16,24 @@ services:
   zipkin:
     build: ./zipkin/
     restart: on-failure
+    networks:
+      - app_network
     ports:
       - "9410:9410"
       - "9411:9411"
 
+  elasticsearch:
+    build: ./elasticsearch/
+    restart: on-failure
+    networks:
+      - app_network
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
 volumes:
   portainer_data:
+
+networks:
+  app_network:
+    driver: bridge
