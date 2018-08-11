@@ -4,18 +4,17 @@ services:
 
   portainer:
     build: ./portainer/
-    restart: always
+    restart: on-failure
     networks:
       - app_network
     ports:
-      - "80:9000"
+      - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
 
   zipkin:
     build: ./zipkin/
-    restart: on-failure
     networks:
       - app_network
     ports:
@@ -24,7 +23,6 @@ services:
 
   elasticsearch:
     build: ./elasticsearch/
-    restart: on-failure
     networks:
       - app_network
     ports:
