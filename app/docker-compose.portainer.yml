@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  portainer:
+    build: ./portainer/
+    restart: on-failure
+    networks:
+      - portainer_network
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
+
+networks:
+  portainer_network:
+    driver: bridge
