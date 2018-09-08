@@ -36,16 +36,19 @@ services:
     volumes:
       - volume_mysql:/var/lib/mysql
 
-  adminer:
-    build: ./adminer/
+  redis:
+    build: ./redis/
     networks:
       - network_default
     ports:
-      - "8080:8080"
+      - "6379:6379"
+    volumes:
+      - volume_redis:/data
 
 networks:
   network_default:
     driver: bridge
 
 volumes: 
-  volume_mysql: 
+  volume_mysql:
+  volume_redis:
