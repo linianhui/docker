@@ -28,6 +28,13 @@ services:
     ports:
       - "5001:5001"
 
+  mongo-express:
+    build: ./mongo-express/
+    networks:
+      - network_default
+    ports:
+      - "8081:8081"
+
 networks:
   network_default:
     driver: bridge

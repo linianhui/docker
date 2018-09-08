@@ -45,6 +45,15 @@ services:
     volumes:
       - volume_redis:/data
 
+  mongo:
+    build: ./mongo/
+    networks:
+      - network_default
+    ports:
+      - "27017:27017"
+    volumes:
+      - volume_mongo:/data/db
+
 networks:
   network_default:
     driver: bridge
@@ -52,3 +61,4 @@ networks:
 volumes: 
   volume_mysql:
   volume_redis:
+  volume_mongo:
