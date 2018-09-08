@@ -5,7 +5,7 @@ services:
   zipkin:
     build: ./zipkin/
     networks:
-      - app_network
+      - network_default
     ports:
       - "9410:9410"
       - "9411:9411"
@@ -13,7 +13,7 @@ services:
   elasticsearch:
     build: ./elasticsearch/
     networks:
-      - app_network
+      - network_default
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -21,12 +21,31 @@ services:
   kibana:
     build: ./kibana/
     networks:
-      - app_network
+      - network_default
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
 
+  mysql:
+    build: ./mysql/
+    networks:
+      - network_default
+    ports:
+      - "3306:3306"
+    volumes:
+      - volume_mysql:/var/lib/mysql
+
+  adminer:
+    build: ./adminer/
+    networks:
+      - network_default
+    ports:
+      - "8080:8080"
+
 networks:
-  app_network:
+  network_default:
     driver: bridge
+
+volumes: 
+  volume_mysql: 

@@ -6,11 +6,17 @@ services:
     build: ./portainer/
     restart: on-failure
     command: -H unix:///var/run/docker.sock
+    networks:
+      - network_default
     ports:
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - volume_portainer:/data
+
+networks:
+  network_default:
+    driver: bridge
 
 volumes:
-  portainer_data:
+  volume_portainer:

@@ -3,7 +3,13 @@
 # https://github.com/openzipkin/docker-zipkin
 FROM openzipkin/zipkin
 
-ENV STORAGE_TYPE=elasticsearch
-ENV ES_HOSTS=http://elasticsearch:9200
+# https://github.com/openzipkin/zipkin/tree/master/zipkin-server#mysql-storage
+ENV STORAGE_TYPE=mysql
+ENV MYSQL_HOST=mysql
+
+# https://github.com/openzipkin/zipkin/blob/master/zipkin-storage/mysql-v1/src/main/resources/mysql.sql
+ENV MYSQL_DB=zipkin
+ENV MYSQL_USER=zipkin
+ENV MYSQL_PASS=zipkin
 
 EXPOSE 9410 9411
