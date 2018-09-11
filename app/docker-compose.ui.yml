@@ -2,6 +2,16 @@ version: '3'
 
 services:
 
+  socat:
+    build: ./socat/
+    restart: always
+    networks:
+      - network_default
+    ports:
+      - "2375:2375"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   portainer:
     build: ./portainer/
     restart: on-failure
