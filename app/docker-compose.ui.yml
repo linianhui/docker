@@ -24,27 +24,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - volume_portainer:/data
 
-  adminer:
-    build: ./adminer/
-    networks:
-      - network_default
-    ports:
-      - "8080:8080"
-
-  rebrow:
-    build: ./rebrow/
-    networks:
-      - network_default
-    ports:
-      - "5001:5001"
-
-  mongo-express:
-    build: ./mongo-express/
-    networks:
-      - network_default
-    ports:
-      - "8081:8081"
-
 networks:
   network_default:
     driver: bridge
