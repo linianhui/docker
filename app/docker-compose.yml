@@ -64,13 +64,6 @@ services:
     volumes:
       - volume_rabbitmq:/var/lib/rabbitmq
 
-  adminer:
-    build: ./adminer/
-    networks:
-      - network_default
-    ports:
-      - "8080:8080"
-
   rebrow:
     build: ./rebrow/
     networks:
