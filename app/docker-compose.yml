@@ -2,87 +2,42 @@ version: '3'
 
 services:
 
-  zipkin:
-    build: ./zipkin/
+  socat:
+    build: ./socat/
+    restart: always
     networks:
       - network_default
     ports:
-      - "9410:9410"
-      - "9411:9411"
-
-  elasticsearch:
-    build: ./elasticsearch/
-    networks:
-      - network_default
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-
-  kibana:
-    build: ./kibana/
-    networks:
-      - network_default
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
-
-  mysql:
-    build: ./mysql/
-    networks:
-      - network_default
-    ports:
-      - "3306:3306"
+      - "2375:2375"
     volumes:
-      - volume_mysql:/var/lib/mysql
+      - /var/run/docker.sock:/var/run/docker.sock
 
-  redis:
-    build: ./redis/
+  portainer:
+    build: ./portainer/
+    restart: on-failure
+    command: -H unix:///var/run/docker.sock
     networks:
       - network_default
     ports:
-      - "6379:6379"
+      - "9000:9000"
     volumes:
-      - volume_redis:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - volume_portainer:/data
 
-  mongo:
-    build: ./mongo/
+  adminer:
+    build: ./adminer/
+    restart: on-failure
     networks:
       - network_default
     ports:
-      - "27017:27017"
+      - "8080:8080"
     volumes:
-      - volume_mongo:/data/db
+      - volume_adminer:/tmp
 
-  rabbitmq:
-    build: ./rabbitmq/
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    networks:
-      - network_default
-    volumes:
-      - volume_rabbitmq:/var/lib/rabbitmq
-
-  rebrow:
-    build: ./rebrow/
-    networks:
-      - network_default
-    ports:
-      - "5001:5001"
-
-  mongo-express:
-    build: ./mongo-express/
-    networks:
-      - network_default
-    ports:
-      - "8081:8081"
 networks:
   network_default:
     driver: bridge
 
-volumes: 
-  volume_mysql:
-  volume_redis:
-  volume_mongo:
-  volume_rabbitmq:
+volumes:
+  volume_portainer:
+  volume_adminer:

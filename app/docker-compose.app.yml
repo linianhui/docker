@@ -1,0 +1,88 @@
+version: '3'
+
+services:
+
+  zipkin:
+    build: ./zipkin/
+    networks:
+      - network_default
+    ports:
+      - "9410:9410"
+      - "9411:9411"
+
+  elasticsearch:
+    build: ./elasticsearch/
+    networks:
+      - network_default
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  kibana:
+    build: ./kibana/
+    networks:
+      - network_default
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  mysql:
+    build: ./mysql/
+    networks:
+      - network_default
+    ports:
+      - "3306:3306"
+    volumes:
+      - volume_mysql:/var/lib/mysql
+
+  redis:
+    build: ./redis/
+    networks:
+      - network_default
+    ports:
+      - "6379:6379"
+    volumes:
+      - volume_redis:/data
+
+  mongo:
+    build: ./mongo/
+    networks:
+      - network_default
+    ports:
+      - "27017:27017"
+    volumes:
+      - volume_mongo:/data/db
+
+  rabbitmq:
+    build: ./rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - network_default
+    volumes:
+      - volume_rabbitmq:/var/lib/rabbitmq
+
+  rebrow:
+    build: ./rebrow/
+    networks:
+      - network_default
+    ports:
+      - "5001:5001"
+
+  mongo-express:
+    build: ./mongo-express/
+    networks:
+      - network_default
+    ports:
+      - "8081:8081"
+networks:
+  network_default:
+    driver: bridge
+
+volumes: 
+  volume_mysql:
+  volume_redis:
+  volume_mongo:
+  volume_rabbitmq:
