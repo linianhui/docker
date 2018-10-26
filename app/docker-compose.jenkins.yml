@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  jenkins:
+    build: ./jenkins/
+    networks:
+      - network_default
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - volume_jenkins:/var/jenkins_home
+
+networks:
+  network_default:
+    driver: bridge
+
+volumes: 
+  volume_jenkins:
