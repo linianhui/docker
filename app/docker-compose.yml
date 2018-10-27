@@ -2,15 +2,20 @@ version: '3'
 
 services:
 
-  socat:
-    build: ./socat/
-    restart: always
+  traefik:
+    build: ./traefik/
+    restart: on-failure
+    command: --api
     networks:
       - network_default
     ports:
-      - "2375:2375"
+      - "80:80"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+     - /var/run/docker.sock:/var/run/docker.sock
+    labels: 
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:traefik.docker
+      - traefik.port=8080
 
   portainer:
     build: ./portainer/
@@ -18,11 +23,23 @@ services:
     command: -H unix:///var/run/docker.sock
     networks:
       - network_default
-    ports:
-      - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - volume_portainer:/data
+    labels: 
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:admin.docker
+
+  socat:
+    build: ./socat/
+    restart: always
+    networks:
+      - network_default
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels: 
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:api.docker
 
 networks:
   network_default:

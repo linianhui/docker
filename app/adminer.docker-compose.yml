@@ -6,10 +6,10 @@ services:
     build: ./adminer/
     networks:
       - network_default
-    ports:
-      - "8080:8080"
     volumes:
       - volume_adminer:/tmp
+    labels:
+      - traefik.enable=true
 
 networks:
   network_default:

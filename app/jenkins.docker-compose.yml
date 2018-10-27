@@ -6,11 +6,11 @@ services:
     build: ./jenkins/
     networks:
       - network_default
-    ports:
-      - "8080:8080"
-      - "50000:50000"
     volumes:
       - volume_jenkins:/var/jenkins_home
+    labels:
+      - traefik.enable=true
+      - traefik.port=8080
 
 networks:
   network_default:

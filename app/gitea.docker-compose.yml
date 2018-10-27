@@ -6,10 +6,11 @@ services:
     build: ./gitea/
     networks:
       - network_default
-    ports:
-      - "3000:3000"
     volumes:
       - volume_gitea:/data
+    labels:
+      - traefik.enable=true
+      - traefik.port=3000
 
 networks:
   network_default:
