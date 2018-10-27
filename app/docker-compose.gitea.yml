@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  gitea:
+    build: ./gitea/
+    networks:
+      - network_default
+    ports:
+      - "3000:3000"
+    volumes:
+      - volume_gitea:/data
+
+networks:
+  network_default:
+    driver: bridge
+
+volumes: 
+  volume_gitea:
