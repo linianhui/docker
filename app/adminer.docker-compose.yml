@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  adminer:
+    build: ./adminer/
+    networks:
+      - network_default
+    ports:
+      - "8080:8080"
+    volumes:
+      - volume_adminer:/tmp
+
+networks:
+  network_default:
+    driver: bridge
+
+volumes:
+  volume_adminer:

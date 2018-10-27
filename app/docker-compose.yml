@@ -24,20 +24,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - volume_portainer:/data
 
-  adminer:
-    build: ./adminer/
-    restart: on-failure
-    networks:
-      - network_default
-    ports:
-      - "8080:8080"
-    volumes:
-      - volume_adminer:/tmp
-
 networks:
   network_default:
     driver: bridge
 
 volumes:
   volume_portainer:
-  volume_adminer:
