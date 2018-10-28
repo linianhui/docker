@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  rabbitmq:
+    build: ./rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - network_default
+    volumes:
+      - volume_rabbitmq:/var/lib/rabbitmq
+
+networks:
+  network_default:
+    driver: bridge
+
+volumes: 
+  volume_rabbitmq:
