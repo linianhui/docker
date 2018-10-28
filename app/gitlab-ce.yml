@@ -1,0 +1,26 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  gitlab-ce:
+    build: ./gitlab-ce/
+    networks:
+      - network_default
+    ports:
+      - "10080:80"
+    volumes:
+      - volume_gitlab-ce-config:/etc/gitlab
+      - volume_gitlab-ce-log:/var/log/gitlab
+      - volume_gitlab-ce-data:/var/opt/gitlab
+
+
+volumes: 
+  volume_gitlab-ce-config:
+  volume_gitlab-ce-log:
+  volume_gitlab-ce-data:
