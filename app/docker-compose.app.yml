@@ -2,15 +2,6 @@ version: '3'
 
 services:
 
-  mysql:
-    build: ./mysql/
-    networks:
-      - network_default
-    ports:
-      - "3306:3306"
-    volumes:
-      - volume_mysql:/var/lib/mysql
-
   redis:
     build: ./redis/
     networks:
@@ -57,7 +48,6 @@ networks:
     driver: bridge
 
 volumes: 
-  volume_mysql:
   volume_redis:
   volume_mongo:
   volume_rabbitmq:
