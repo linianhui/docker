@@ -2,13 +2,6 @@ version: '3'
 
 services:
 
-  kibana:
-    build: ./kibana/
-    networks:
-      - network_default
-    ports:
-      - "5601:5601"
-
   mysql:
     build: ./mysql/
     networks:
