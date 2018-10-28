@@ -1,5 +1,11 @@
 version: '3'
 
+
+networks:
+  network_default:
+    driver: bridge
+
+
 services:
 
   rabbitmq:
@@ -12,9 +18,6 @@ services:
     volumes:
       - volume_rabbitmq:/var/lib/rabbitmq
 
-networks:
-  network_default:
-    driver: bridge
 
 volumes: 
   volume_rabbitmq:

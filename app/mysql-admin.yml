@@ -2,18 +2,18 @@ version: '3'
 
 services:
 
-  adminer:
-    build: ./adminer/
+  mysql-admin:
+    build: ./mysql-admin/
     networks:
       - network_default
+    ports:
+      - "13306:8080"
     volumes:
-      - volume_adminer:/tmp
-    labels:
-      - traefik.enable=true
+      - volume_mysql-admin:/tmp
 
 networks:
   network_default:
     driver: bridge
 
 volumes:
-  volume_adminer:
+  volume_mysql-admin:

@@ -1,20 +1,21 @@
 version: '3'
 
+
+networks:
+  network_default:
+    driver: bridge
+
+
 services:
 
   gitea:
     build: ./gitea/
     networks:
       - network_default
+    ports:
+      - "3000:3000"
     volumes:
       - volume_gitea:/data
-    labels:
-      - traefik.enable=true
-      - traefik.port=3000
-
-networks:
-  network_default:
-    driver: bridge
 
 volumes: 
   volume_gitea:

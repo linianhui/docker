@@ -1,0 +1,16 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  mongo-admin:
+    build: ./mongo-admin/
+    networks:
+      - network_default
+    ports:
+      - "37017:8081"

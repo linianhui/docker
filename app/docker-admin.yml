@@ -1,0 +1,25 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  docker-admin:
+    build: ./docker-admin/
+    restart: always # always on-failure
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - network_default
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - volume_docker-admin:/data
+
+
+volumes:
+  volume_docker-admin:

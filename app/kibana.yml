@@ -1,5 +1,11 @@
 version: '3'
 
+
+networks:
+  network_default:
+    driver: bridge
+
+
 services:
 
   kibana:
@@ -8,7 +14,3 @@ services:
       - network_default
     ports:
       - "5601:5601"
-
-networks:
-  network_default:
-    driver: bridge

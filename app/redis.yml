@@ -1,5 +1,11 @@
 version: '3'
 
+
+networks:
+  network_default:
+    driver: bridge
+
+
 services:
 
   redis:
@@ -11,9 +17,6 @@ services:
     volumes:
       - volume_redis:/data
 
-networks:
-  network_default:
-    driver: bridge
 
 volumes: 
   volume_redis:

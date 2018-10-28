@@ -1,5 +1,11 @@
 version: '3'
 
+
+networks:
+  network_default:
+    driver: bridge
+
+
 services:
 
   zipkin:
@@ -9,7 +15,3 @@ services:
     ports:
       - "9410:9410"
       - "9411:9411"
-
-networks:
-  network_default:
-    driver: bridge

@@ -1,0 +1,18 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  docker-api:
+    build: ./docker-api/
+    networks:
+      - network_default
+    ports:
+      - "2375:2375"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

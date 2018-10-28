@@ -1,0 +1,25 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  traefik:
+    build: ./traefik/
+    restart: on-failure
+    command: --api
+    networks:
+      - network_default
+    ports:
+      - "80:80"
+      - "18080:8080"
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    labels: 
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:traefik.docker
+      - traefik.port=8080

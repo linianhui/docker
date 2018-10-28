@@ -1,0 +1,24 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  mongo:
+    build: ./mongo/
+    networks:
+      - network_default
+    ports:
+      - "27017:27017"
+    volumes:
+      - volume_mongo-db:/data/db
+      - volume_mongo-configdb:/data/configdb
+
+
+volumes: 
+  volume_mongo-db:
+  volume_mongo-configdb:
