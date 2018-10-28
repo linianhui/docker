@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/rabbitmq/
 # https://github.com/docker-library/rabbitmq/blob/master/3.7/alpine/Dockerfile
-FROM rabbitmq:3.7-management-alpine
+FROM rabbitmq:management-alpine
 
 ENV RABBITMQ_DEFAULT_VHOST=default_vhost
 
