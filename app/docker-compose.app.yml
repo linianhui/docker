@@ -2,22 +2,12 @@ version: '3'
 
 services:
 
-  elasticsearch:
-    build: ./elasticsearch/
-    networks:
-      - network_default
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-
   kibana:
     build: ./kibana/
     networks:
       - network_default
     ports:
       - "5601:5601"
-    depends_on:
-      - elasticsearch
 
   mysql:
     build: ./mysql/

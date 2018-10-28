@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  elasticsearch:
+    build: ./elasticsearch/
+    networks:
+      - network_default
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+networks:
+  network_default:
+    driver: bridge
