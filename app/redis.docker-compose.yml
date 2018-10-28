@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  redis:
+    build: ./redis/
+    networks:
+      - network_default
+    ports:
+      - "6379:6379"
+    volumes:
+      - volume_redis:/data
+
+networks:
+  network_default:
+    driver: bridge
+
+volumes: 
+  volume_redis:
