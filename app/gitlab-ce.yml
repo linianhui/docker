@@ -13,7 +13,11 @@ services:
     networks:
       - network_default
     ports:
-      - "10080:80"
+      - "10080:10080"
+    environment:
+      # https://docs.gitlab.com/omnibus/docker/#pre-configure-docker-container
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.test:10080'
     volumes:
       - volume_gitlab-ce-config:/etc/gitlab
       - volume_gitlab-ce-log:/var/log/gitlab
