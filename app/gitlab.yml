@@ -8,8 +8,8 @@ networks:
 
 services:
 
-  gitlab-ce:
-    build: ./gitlab-ce/
+  gitlab:
+    build: ./gitlab/
     networks:
       - network_default
     ports:
@@ -17,14 +17,14 @@ services:
     environment:
       # https://docs.gitlab.com/omnibus/docker/#pre-configure-docker-container
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://gitlab.test:10080'
+        external_url 'http://gitlab:10080'
     volumes:
-      - volume_gitlab-ce-config:/etc/gitlab
-      - volume_gitlab-ce-log:/var/log/gitlab
-      - volume_gitlab-ce-data:/var/opt/gitlab
+      - volume_gitlab-config:/etc/gitlab
+      - volume_gitlab-log:/var/log/gitlab
+      - volume_gitlab-data:/var/opt/gitlab
 
 
 volumes: 
-  volume_gitlab-ce-config:
-  volume_gitlab-ce-log:
-  volume_gitlab-ce-data:
+  volume_gitlab-config:
+  volume_gitlab-log:
+  volume_gitlab-data:
