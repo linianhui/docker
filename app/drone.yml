@@ -1,0 +1,25 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  drone:
+    build: ./drone/
+    networks:
+      - network_default
+    ports:
+      - "18000:8000"
+    volumes:
+      - volume_drone:/var/lib/drone/
+    environment:
+      - DRONE_HOST=http://drone:18000
+      - DRONE_GOGS_URL=http://gogs:3000
+      - DRONE_GITLAB_URL=http://gitlab:10080
+
+volumes:
+  volume_drone:
