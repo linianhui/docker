@@ -14,9 +14,11 @@ services:
     networks:
       - network_default
     volumes:
-      - volume_gitlab-runner:/etc/gitlab-runner
+      - volume_gitlab-runner-home:/home/gitlab-runner
+      - volume_gitlab-runner-config:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
 
 
 volumes: 
-  volume_gitlab-runner:
+  volume_gitlab-runner-home:
+  volume_gitlab-runner-config:

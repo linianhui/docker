@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/gitlab/gitlab-runner
-# ://hub.docker.com/r/gitlab/gitlab-runner/~/dockerfile/
+# https://hub.docker.com/r/gitlab/gitlab-runner/~/dockerfile/
 FROM gitlab/gitlab-runner:alpine
 
 # https://docs.gitlab.com/runner/install/docker.html
