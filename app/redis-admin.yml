@@ -9,7 +9,7 @@ networks:
 services:
 
   redis-admin:
-    build: ./redis-admin/
+    build: ./images/redis-admin/
     networks:
       - network_default
     ports:

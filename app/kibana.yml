@@ -9,7 +9,7 @@ networks:
 services:
 
   kibana:
-    build: ./kibana/
+    build: ./images/kibana/
     networks:
       - network_default
     ports:

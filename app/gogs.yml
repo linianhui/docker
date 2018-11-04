@@ -9,7 +9,7 @@ networks:
 services:
 
   gogs:
-    build: ./gogs/
+    build: ./images/gogs/
     networks:
       - network_default
     ports:

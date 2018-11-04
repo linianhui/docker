@@ -9,7 +9,7 @@ networks:
 services:
 
   zipkin:
-    build: ./zipkin/
+    build: ./images/zipkin/
     networks:
       - network_default
     ports:

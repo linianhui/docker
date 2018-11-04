@@ -9,7 +9,7 @@ networks:
 services:
 
   mongo:
-    build: ./mongo/
+    build: ./images/mongo/
     networks:
       - network_default
     ports:

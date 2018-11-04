@@ -3,7 +3,7 @@ version: '3'
 services:
 
   mysql-admin:
-    build: ./mysql-admin/
+    build: ./images/mysql-admin/
     networks:
       - network_default
     ports:

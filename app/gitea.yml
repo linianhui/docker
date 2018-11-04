@@ -9,7 +9,7 @@ networks:
 services:
 
   gitea:
-    build: ./gitea/
+    build: ./images/gitea/
     networks:
       - network_default
     ports:

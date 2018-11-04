@@ -9,7 +9,7 @@ networks:
 services:
 
   redis:
-    build: ./redis/
+    build: ./images/redis/
     networks:
       - network_default
     ports:

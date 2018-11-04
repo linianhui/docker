@@ -9,7 +9,7 @@ networks:
 services:
 
   docker-admin:
-    build: ./docker-admin/
+    build: ./images/docker-admin/
     restart: always # always on-failure
     command: -H unix:///var/run/docker.sock
     networks:
