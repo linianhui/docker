@@ -23,7 +23,7 @@ ENV DRONE_GITEA=true \
     DRONE_GITEA_SKIP_VERIFY=true
 
 # http://docs.drone.io/install-for-gitlab/
-ENV DRONE_GITLAB=true \
+ENV DRONE_GITLAB=false \
     DRONE_GITLAB_GIT_USERNAME=root \
     DRONE_GITLAB_GIT_PASSWORD=12345678 \
     DRONE_GITLAB_SKIP_VERIFY=true
