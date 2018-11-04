@@ -1,0 +1,22 @@
+version: '3'
+
+
+networks:
+  network_default:
+    driver: bridge
+
+
+services:
+
+  gitlab-runner: # ./entrypoint register
+    build: ./gitlab-runner/
+    restart: always
+    networks:
+      - network_default
+    volumes:
+      - volume_gitlab-runner:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+volumes: 
+  volume_gitlab-runner:
