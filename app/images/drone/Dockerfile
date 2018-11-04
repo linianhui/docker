@@ -1,7 +1,7 @@
 # https://hub.docker.com/r/drone/drone
 # https://hub.docker.com/r/drone/drone/~/dockerfile
 
-FROM drone/drone:0.8
+FROM drone/drone
 
 # http://docs.drone.io/installation/
 # http://docs.drone.io/user-registration/
