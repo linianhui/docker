@@ -7,9 +7,9 @@ services:
     networks:
       - network_default
     ports:
-      - "13306:8080"
+      - "13306:80"
     volumes:
-      - volume_mysql-admin:/tmp
+      - volume_mysql-admin:/sessions
 
 networks:
   network_default:

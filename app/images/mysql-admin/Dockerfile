@@ -1,7 +1,8 @@
-# https://hub.docker.com/_/adminer/
-# https://github.com/docker-library/mysql/blob/master/5.7/Dockerfile
-FROM adminer
+# https://hub.docker.com/r/phpmyadmin/phpmyadmin
+FROM phpmyadmin/phpmyadmin
 
-ENV ADMINER_DEFAULT_SERVER=mysql
+ENV PMA_HOST=mysql \
+    MYSQL_ROOT_PASSWORD=1234 \
+    PMA_ARBITRARY=1
 
-EXPOSE 8080
+EXPOSE 80
