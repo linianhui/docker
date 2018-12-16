@@ -32,5 +32,6 @@ http.createServer(function (req, res) {
             constants: os.constants,
         }
     };
+    console.log(body);
     res.end(JSON.stringify(body));
 }).listen(80);
