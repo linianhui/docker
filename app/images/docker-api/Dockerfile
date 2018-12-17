@@ -1,4 +1,4 @@
 # https://hub.docker.com/r/lnhcode/socat
-FROM lnhcode/socat:alpine
+FROM lnhcode/socat
 
 EXPOSE 2375
