@@ -1,0 +1,31 @@
+# https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
+# kubectl create -f api.pod.yml -v=9
+# kubectl kubectl get pods -o wide -v=9
+# kubectl describe pods api-pod
+# kubectl exec -it api-pod sh
+# kubectl port-forward pod/api-pod 80:80
+# kubectl delete -f api.pod.yml -v=9
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-pod
+  labels:
+    app: api
+spec:
+  containers:
+  - name: api-pod-container
+    image: lnhcode/http # 镜像
+    #imagePullPolicy: Always # 每次都获取最新的镜像
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      httpGet:
+        scheme: HTTP
+        path: /
+        port: 80
+        httpHeaders:
+        - name: X-User-Agent
+          value: K8S_HEALTH_CHECK
+      initialDelaySeconds: 60
+      timeoutSeconds: 5
+      periodSeconds: 10
