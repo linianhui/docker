@@ -6,6 +6,7 @@ http.createServer(function (req, res) {
         'Content-Type': 'application/json'
     });
     var body = {
+        host_name: os.hostname(),
         request: {
             method: req.method,
             host: req.headers.host,
@@ -13,6 +14,7 @@ http.createServer(function (req, res) {
             http_version: req.httpVersion,
             headers: req.headers
         },
+        env: process.env,
         os: {
             host_name: os.hostname(),
             platform: os.platform(),
