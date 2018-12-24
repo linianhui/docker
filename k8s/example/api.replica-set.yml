@@ -1,0 +1,28 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+# kubectl create -f api.replica-set.yml api-replica-set
+# kubectl get rs -o wide
+# kubectl describe rs api-replica-set
+# kubectl delete -f api.replica-set.yml
+apiVersion: apps/v1
+kind: ReplicaSet 
+metadata:
+  name: api-replica-set
+  labels:
+    app: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      name: api
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api-replica-set-container
+        image: lnhcode/metadata
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
