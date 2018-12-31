@@ -1,16 +1,13 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   metadata:
     build: ./images/metadata/
     networks:
       - network_default
     ports:
-      - "10080:80"
+      - '10080:80'

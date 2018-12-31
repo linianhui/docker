@@ -7,6 +7,6 @@ spec:
   selector:
     app: ingress
   ports:
-  - name: admin
-    port: 8080
-    targetPort: 8080
+    - name: admin
+      port: 8080
+      targetPort: 8080

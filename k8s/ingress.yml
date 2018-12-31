@@ -10,9 +10,9 @@ metadata:
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - http:
-      paths:
-      - path: /.admin
-        backend:
-          serviceName: ingress-service
-          servicePort: admin
+    - http:
+        paths:
+          - path: /.admin
+            backend:
+              serviceName: ingress-service
+              servicePort: admin

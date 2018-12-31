@@ -13,19 +13,19 @@ metadata:
     app: api
 spec:
   containers:
-  - name: api-pod-container
-    image: lnhcode/metadata # 镜像
-    #imagePullPolicy: Always # 每次都获取最新的镜像
-    ports:
-    - containerPort: 80
-    livenessProbe:
-      httpGet:
-        scheme: HTTP
-        path: /
-        port: 80
-        httpHeaders:
-        - name: X-User-Agent
-          value: K8S_HEALTH_CHECK
-      initialDelaySeconds: 60
-      timeoutSeconds: 5
-      periodSeconds: 10
+    - name: api-pod-container
+      image: lnhcode/metadata # 镜像
+      #imagePullPolicy: Always # 每次都获取最新的镜像
+      ports:
+        - containerPort: 80
+      livenessProbe:
+        httpGet:
+          scheme: HTTP
+          path: /
+          port: 80
+          httpHeaders:
+            - name: X-User-Agent
+              value: K8S_HEALTH_CHECK
+        initialDelaySeconds: 60
+        timeoutSeconds: 5
+        periodSeconds: 10

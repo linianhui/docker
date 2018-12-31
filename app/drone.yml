@@ -1,19 +1,16 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   drone:
     build: ./images/drone/
     networks:
       - network_default
     ports:
-      - "18000:8000"
+      - '18000:8000'
     volumes:
       - volume_drone:/var/lib/drone/
     environment:

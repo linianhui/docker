@@ -1,16 +1,13 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   redis-admin:
     build: ./images/redis-admin/
     networks:
       - network_default
     ports:
-      - "16379:5001"
+      - '16379:5001'

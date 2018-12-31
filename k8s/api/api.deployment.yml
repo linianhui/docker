@@ -16,7 +16,7 @@ spec:
         app: api
     spec:
       containers:
-      - name: api-deployment-container
-        image: lnhcode/metadata
-        ports:
-        - containerPort: 80
+        - name: api-deployment-container
+          image: lnhcode/metadata
+          ports:
+            - containerPort: 80

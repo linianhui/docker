@@ -7,9 +7,9 @@ metadata:
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          serviceName: api-service
-          servicePort: 80
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: api-service
+              servicePort: 80

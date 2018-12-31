@@ -1,13 +1,12 @@
 version: '3'
 
 services:
-
   mysql:
     build: ./images/mysql/
     networks:
       - network_default
     ports:
-      - "3306:3306"
+      - '3306:3306'
     volumes:
       - volume_mysql:/var/lib/mysql
 
@@ -15,5 +14,5 @@ networks:
   network_default:
     driver: bridge
 
-volumes: 
+volumes:
   volume_mysql:

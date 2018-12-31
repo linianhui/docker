@@ -1,22 +1,18 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   redis:
     build: ./images/redis/
     networks:
       - network_default
     ports:
-      - "6379:6379"
+      - '6379:6379'
     volumes:
       - volume_redis:/data
 
-
-volumes: 
+volumes:
   volume_redis:

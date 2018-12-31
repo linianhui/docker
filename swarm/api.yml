@@ -7,30 +7,28 @@ networks:
   network_overlay:
     driver: overlay
 
-
 services:
-
   metadata:
     image: lnhcode/metadata
     deploy:
       replicas: 3
       resources:
         limits:
-          cpus: "0.1"
+          cpus: '0.1'
           memory: 100M
       restart_policy:
         condition: on-failure
     networks:
       - network_overlay
     ports:
-      - "10080:80"
+      - '10080:80'
   # https://docs.docker.com/get-started/part5
   visualizer:
     image: dockersamples/visualizer:stable
     ports:
-      - "18080:8080"
+      - '18080:8080'
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
+      - '/var/run/docker.sock:/var/run/docker.sock'
     deploy:
       placement:
         constraints: [node.role == manager]

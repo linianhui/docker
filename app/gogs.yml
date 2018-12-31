@@ -1,22 +1,18 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   gogs:
     build: ./images/gogs/
     networks:
       - network_default
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - volume_gogs:/data
 
-
-volumes: 
+volumes:
   volume_gogs:

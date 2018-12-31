@@ -1,13 +1,10 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   drone-agent:
     build: ./images/drone-agent/
     command: agent

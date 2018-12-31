@@ -1,13 +1,12 @@
 version: '3'
 
 services:
-
   mysql-admin:
     build: ./images/mysql-admin/
     networks:
       - network_default
     ports:
-      - "13306:80"
+      - '13306:80'
     volumes:
       - volume_mysql-admin:/sessions
 

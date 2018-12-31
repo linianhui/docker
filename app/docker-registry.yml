@@ -1,22 +1,18 @@
 version: '3'
 
-
 networks:
   network_default:
     driver: bridge
 
-
 services:
-
   docker-registry:
     build: ./images/docker-registry/
     networks:
       - network_default
     ports:
-      - "15000:5000"
+      - '15000:5000'
     volumes:
       - volume_docker-registry:/var/lib/registry
-
 
 volumes:
   volume_docker-registry:
