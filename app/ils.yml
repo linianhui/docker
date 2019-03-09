@@ -1,0 +1,14 @@
+version: '3'
+
+networks:
+  network_default:
+    driver: bridge
+
+services:
+  ils:
+    image: dominate/idea-license-server
+    restart: always
+    networks:
+      - network_default
+    ports:
+      - '1017:1017'
