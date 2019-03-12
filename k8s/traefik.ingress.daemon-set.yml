@@ -3,20 +3,20 @@
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
-  name: ingress-saemon-set
+  name: traefik-ingress-daemon-set
   namespace: kube-system
 spec:
   template:
     metadata:
       labels:
-        app: ingress
+        app: traefik-ingress
     spec:
       serviceAccountName: default
       hostNetwork: true
       restartPolicy: Always
       containers:
         - image: traefik
-          name: ingress
+          name: traefik-ingress
           resources:
             requests:
               cpu: 100m

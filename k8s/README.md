@@ -1,17 +1,17 @@
-# 部署ingress
+# 部署traefik ingress
 
 ```sh
 # traefik pod
-kubectl create -f ingress.daemon-set.yml
+kubectl create -f traefik.ingress.daemon-set.yml
 
-# traefik web ui service
-kubectl create -f ingress.service.yml
+# traefik web admin dashboard service
+kubectl create -f traefik.admin.service.yml
 
-# traefik web ui ingress
-kubectl create -f ingress.yml
+# traefik web admin dashboard ingress
+kubectl create -f traefik.admin.ingress.yml
 ```
 
-web ui : http://192.168.2.225/.admin
+web admin dashboard : http://192.168.2.235/.admin
 
 # 部署api服务 
 
@@ -29,4 +29,4 @@ kubectl create -f api/api.ingress.yml
 kubectl scale deployment api-deployment --replicas 5
 ```
 
-http api : http://192.168.2.225
+http api : http://192.168.2.235

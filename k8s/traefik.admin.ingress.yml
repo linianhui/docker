@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress
+  name: traefik-admin-ingress
   namespace: kube-system
   annotations:
     kubernetes.io/ingress.class: traefik
@@ -14,5 +14,5 @@ spec:
         paths:
           - path: /.admin
             backend:
-              serviceName: ingress-service
+              serviceName: traefik-admin-service
               servicePort: admin
