@@ -1,5 +1,5 @@
 # https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
-# kubectl create -f api.pod.yml -v=9
+# kubectl apply -f api.pod.yml -v=9
 # kubectl kubectl get pods -o wide -v=9
 # kubectl describe pods api-pod
 # kubectl exec -it api-pod sh
