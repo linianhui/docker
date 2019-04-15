@@ -14,4 +14,4 @@ RUN apk add --no-cache \
     vim \
     git
 
-ENTRYPOINT [ "tail","-f","/dev/null" ]
+# ENTRYPOINT [ "tail","-f","/dev/null" ]
