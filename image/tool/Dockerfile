@@ -3,7 +3,7 @@ FROM alpine:3.9
 
 LABEL author="lnhcode@outlook.com"
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk --update --no-cache add \
     tcpdump \
