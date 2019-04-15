@@ -6,7 +6,7 @@ networks:
 
 services:
   drone-agent:
-    build: ./images/drone-agent/
+    build: ./image/drone-agent/
     command: agent
     networks:
       - network_default

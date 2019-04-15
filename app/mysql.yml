@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql:
-    build: ./images/mysql/
+    build: ./image/mysql/
     networks:
       - network_default
     ports:

@@ -6,7 +6,7 @@ networks:
 
 services:
   jenkins:
-    build: ./images/jenkins/
+    build: ./image/jenkins/
     networks:
       - network_default
     ports:

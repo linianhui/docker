@@ -6,7 +6,7 @@ networks:
 
 services:
   metadata:
-    build: ./images/metadata/
+    build: ./image/metadata/
     networks:
       - network_default
     ports:

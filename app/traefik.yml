@@ -6,7 +6,7 @@ networks:
 
 services:
   traefik:
-    build: ./images/traefik/
+    build: ./image/traefik/
     restart: on-failure
     command: --api
     networks:

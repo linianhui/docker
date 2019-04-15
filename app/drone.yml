@@ -6,7 +6,7 @@ networks:
 
 services:
   drone:
-    build: ./images/drone/
+    build: ./image/drone/
     networks:
       - network_default
     ports:

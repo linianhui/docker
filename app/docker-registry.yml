@@ -6,7 +6,7 @@ networks:
 
 services:
   docker-registry:
-    build: ./images/docker-registry/
+    build: ./image/docker-registry/
     networks:
       - network_default
     ports:

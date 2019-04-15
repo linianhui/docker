@@ -9,7 +9,7 @@ networks:
 services:
 
   gitlab-runner: # ./entrypoint register
-    build: ./images/gitlab-runner/
+    build: ./image/gitlab-runner/
     restart: always
     networks:
       - network_default

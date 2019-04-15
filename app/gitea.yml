@@ -6,7 +6,7 @@ networks:
 
 services:
   gitea:
-    build: ./images/gitea/
+    build: ./image/gitea/
     restart: always
     networks:
       - network_default

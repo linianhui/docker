@@ -6,7 +6,7 @@ networks:
 
 services:
   mongo-admin:
-    build: ./images/mongo-admin/
+    build: ./image/mongo-admin/
     networks:
       - network_default
     ports:

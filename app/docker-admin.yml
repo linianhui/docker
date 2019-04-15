@@ -6,7 +6,7 @@ networks:
 
 services:
   docker-admin:
-    build: ./images/docker-admin/
+    build: ./image/docker-admin/
     restart: always # always on-failure
     command: -H unix:///var/run/docker.sock
     networks:

@@ -6,7 +6,7 @@ networks:
 
 services:
   kibana:
-    build: ./images/kibana/
+    build: ./image/kibana/
     networks:
       - network_default
     ports:

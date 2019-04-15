@@ -6,7 +6,7 @@ networks:
 
 services:
   docker-api:
-    build: ./images/docker-api/
+    build: ./image/docker-api/
     networks:
       - network_default
     ports:

@@ -6,7 +6,7 @@ networks:
 
 services:
   elasticsearch:
-    build: ./images/elasticsearch/
+    build: ./image/elasticsearch/
     networks:
       - network_default
     ports:

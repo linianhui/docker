@@ -9,7 +9,7 @@ networks:
 services:
 
   gitlab-ce:
-    build: ./images/gitlab-ce/
+    build: ./image/gitlab-ce/
     networks:
       - network_default
     ports:
