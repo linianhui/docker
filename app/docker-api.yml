@@ -7,6 +7,7 @@ networks:
 services:
   docker-api:
     build: ./image/docker-api/
+    restart: always
     networks:
       - network_default
     ports:
