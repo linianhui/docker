@@ -5,8 +5,8 @@ networks:
     driver: bridge
 
 services:
-  ils:
-    image: dominate/idea-license-server
+  idea:
+    build: ./image/idea/
     restart: always
     networks:
       - network_default
