@@ -22,5 +22,3 @@ RUN apk add --no-cache libstdc++
 COPY --from=builder /sassc/bin/sassc /usr/bin/sass
 
 RUN sass -v
-
-ENTRYPOINT ["sass"]
