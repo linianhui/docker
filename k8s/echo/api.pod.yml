@@ -1,20 +1,20 @@
 # https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
-# kubectl apply -f api.pod.yml -v=9
+# kubectl apply -f echo.pod.yml -v=9
 # kubectl kubectl get pods -o wide -v=9
-# kubectl describe pods api-pod
-# kubectl exec -it api-pod sh
-# kubectl port-forward pod/api-pod 80:80
-# kubectl delete -f api.pod.yml -v=9
+# kubectl describe pods echo-pod
+# kubectl exec -it echo-pod sh
+# kubectl port-forward pod/echo-pod 80:80
+# kubectl delete -f echo.pod.yml -v=9
 apiVersion: v1
 kind: Pod
 metadata:
-  name: api-pod
+  name: echo-pod
   labels:
-    app: api
+    app: echo
 spec:
   containers:
-    - name: api-pod-container
-      image: lnhcode/metadata # 镜像
+    - name: echo-pod-container
+      image: lnhcode/echo # 镜像
       #imagePullPolicy: Always # 每次都获取最新的镜像
       ports:
         - containerPort: 80

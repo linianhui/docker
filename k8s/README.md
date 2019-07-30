@@ -13,20 +13,20 @@ kubectl apply -f traefik.admin.ingress.yml
 
 web admin dashboard : http://192.168.2.235/.admin
 
-# 部署api服务 
+# 部署echo服务 
 
 ```sh
-# api deployment
-kubectl apply -f api/api.deployment.yml
+# echo deployment
+kubectl apply -f echo/echo.deployment.yml
 
-# api service
-kubectl apply -f api/api.service.yml
+# echo service
+kubectl apply -f echo/echo.service.yml
 
-# api ingress
-kubectl apply -f api/api.ingress.yml
+# echo ingress
+kubectl apply -f echo/echo.ingress.yml
 
-# scale api
-kubectl scale deployment api-deployment --replicas 5
+# scale echo
+kubectl scale deployment echo-deployment --replicas 5
 ```
 
 http api : http://192.168.2.235

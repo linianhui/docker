@@ -5,8 +5,8 @@ networks:
     driver: bridge
 
 services:
-  metadata:
-    build: ./image/metadata/
+  echo:
+    build: ./image/echo/
     networks:
       - network_default
     ports:

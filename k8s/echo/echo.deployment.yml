@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: echo-deployment
   labels:
-    app: api
+    app: echo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: api
+      app: echo
   template:
     metadata:
       labels:
-        app: api
+        app: echo
     spec:
       containers:
-        - name: api-deployment-container
-          image: lnhcode/metadata
+        - name: echo-deployment-container
+          image: lnhcode/echo
           ports:
             - containerPort: 80

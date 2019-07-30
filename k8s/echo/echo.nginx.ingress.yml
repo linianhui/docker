@@ -1,15 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: api-traefik-ingress
+  name: echo-nginx-ingress
   annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.frontend.rule.type: PathPrefixStrip
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
     - http:
         paths:
           - path: /
             backend:
-              serviceName: api-service
+              serviceName: echo-service
               servicePort: 80

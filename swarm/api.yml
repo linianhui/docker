@@ -8,8 +8,8 @@ networks:
     driver: overlay
 
 services:
-  metadata:
-    image: lnhcode/metadata
+  echo:
+    image: lnhcode/echo
     deploy:
       replicas: 3
       resources:

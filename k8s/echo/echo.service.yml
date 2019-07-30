@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: api-service
+  name: echo-service
 spec:
   type: ClusterIP
   selector:
-    app: api
+    app: echo
   ports:
     - protocol: TCP
       port: 80
