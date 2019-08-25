@@ -2,4 +2,4 @@ FROM ubuntu
 
 LABEL author="lnhcode@outlook.com"
 
-RUN apt-get install hugo
+RUN apt-get update -y && apt-get install hugo -y
