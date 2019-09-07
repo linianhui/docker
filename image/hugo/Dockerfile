@@ -2,7 +2,7 @@ FROM ubuntu
 
 LABEL author="lnhcode@outlook.com"
 
-ENV HUGO_VERSION=0.57.2
+ENV HUGO_VERSION=0.58.1
 
 RUN apt-get update -y && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
