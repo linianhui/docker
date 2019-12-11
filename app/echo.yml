@@ -11,5 +11,5 @@ services:
       - network_default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.echo.rule=Host(`echo.local`)
+      - traefik.http.routers.echo.rule=Host(`echo.test`)
       - traefik.http.services.echo.loadbalancer.server.port=80

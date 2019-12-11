@@ -13,7 +13,7 @@ services:
       - volume_registry:/var/lib/registry
     labels:
       - traefik.enable=true
-      - traefik.http.routers.registry.rule=Host(`registry.local`)
+      - traefik.http.routers.registry.rule=Host(`registry.test`)
       - traefik.http.services.registry.loadbalancer.server.port=5000
 
 volumes:

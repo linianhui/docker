@@ -11,5 +11,5 @@ services:
       - network_default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.zipkin.rule=Host(`zipkin.local`)
+      - traefik.http.routers.zipkin.rule=Host(`zipkin.test`)
       - traefik.http.services.zipkin.loadbalancer.server.port=9411

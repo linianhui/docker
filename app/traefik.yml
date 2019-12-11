@@ -17,5 +17,5 @@ services:
     # https://docs.traefik.io/routing/providers/docker/#configuration-examples
     labels:
       - traefik.enable=true
-      - traefik.http.routers.traefik.rule=Host(`traefik.local`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.test`)
       - traefik.http.services.traefik.loadbalancer.server.port=8080

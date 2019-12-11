@@ -13,7 +13,7 @@ services:
       - volume_jenkins:/var/jenkins_home
     labels:
       - traefik.enable=true
-      - traefik.http.routers.jenkins.rule=Host(`jenkins.local`)
+      - traefik.http.routers.jenkins.rule=Host(`jenkins.test`)
       - traefik.http.services.jenkins.loadbalancer.server.port=8080
 
 volumes:

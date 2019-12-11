@@ -13,7 +13,7 @@ services:
       - volume_gitea:/data
     labels:
       - traefik.enable=true
-      - traefik.http.routers.gitea.rule=Host(`gitea.local`)
+      - traefik.http.routers.gitea.rule=Host(`gitea.test`)
       - traefik.http.services.gitea.loadbalancer.server.port=3000
 
 volumes:
