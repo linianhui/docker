@@ -9,6 +9,7 @@ services:
     build: ./image/zipkin/
     networks:
       - network_default
-    ports:
-      - '9410:9410'
-      - '9411:9411'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.zipkin.rule=Host(`zipkin.local`)
+      - traefik.http.services.zipkin.loadbalancer.server.port=9411
