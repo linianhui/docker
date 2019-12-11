@@ -7,13 +7,14 @@ networks:
 services:
   gitea:
     build: ./image/gitea/
-    restart: always
     networks:
       - network_default
-    ports:
-      - '3000:3000'
     volumes:
       - volume_gitea:/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.gitea.rule=Host(`gitea.local`)
+      - traefik.http.services.gitea.loadbalancer.server.port=3000
 
 volumes:
   volume_gitea:
