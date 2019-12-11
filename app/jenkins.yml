@@ -9,11 +9,12 @@ services:
     build: ./image/jenkins/
     networks:
       - network_default
-    ports:
-      - '8080:8080'
-      - '50000:50000'
     volumes:
       - volume_jenkins:/var/jenkins_home
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jenkins.rule=Host(`jenkins.local`)
+      - traefik.http.services.jenkins.loadbalancer.server.port=8080
 
 volumes:
   volume_jenkins:
