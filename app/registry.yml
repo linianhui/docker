@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  network_default:
+    driver: bridge
+
+services:
+  registry:
+    build: ./image/registry/
+    networks:
+      - network_default
+    volumes:
+      - volume_registry:/var/lib/registry
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.registry.rule=Host(`registry.local`)
+      - traefik.http.services.registry.loadbalancer.server.port=5000
+
+volumes:
+  volume_registry:
