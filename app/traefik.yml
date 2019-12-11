@@ -14,8 +14,10 @@ services:
       - '80:80'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    # https://docs.traefik.io/routing/providers/docker/#configuration-examples
+    # https://docs.traefik.io/routing/providers/docker/
+    # https://docs.traefik.io/reference/dynamic-configuration/docker/
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.rule=Host(`traefik.test`)
-      - traefik.http.services.traefik.loadbalancer.server.port=8080
+      - traefik.http.routers.traefik.entrypoints=web
+      - traefik.http.routers.traefik.service=api@internal

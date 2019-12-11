@@ -12,4 +12,5 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.echo.rule=Host(`echo.test`)
+      - traefik.http.routers.echo.entrypoints=web
       - traefik.http.services.echo.loadbalancer.server.port=80

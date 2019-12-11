@@ -12,7 +12,7 @@ api:
   debug: true
 
 entryPoints:
-  http:
+  web:
     address: :80
 
 # https://docs.traefik.io/providers/docker/
