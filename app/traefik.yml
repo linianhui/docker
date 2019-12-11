@@ -7,16 +7,15 @@ networks:
 services:
   traefik:
     build: ./image/traefik/
-    restart: on-failure
-    command: --api
+    restart: always
     networks:
       - network_default
     ports:
       - '80:80'
-      - '18080:8080'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    # https://docs.traefik.io/routing/providers/docker/#configuration-examples
     labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:traefik.docker
-      - traefik.port=8080
+      - traefik.http.routers.traefik.rule=Host(`traefik.local`)
+      - traefik.http.services.traefik.loadbalancer.server.port=8080

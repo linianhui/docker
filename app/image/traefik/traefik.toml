@@ -1,6 +1,0 @@
-# https://docs.traefik.io/configuration/backends/docker/
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-domain = "docker"
-watch = true
-exposedByDefault = false
