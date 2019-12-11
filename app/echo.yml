@@ -9,5 +9,7 @@ services:
     build: ./image/echo/
     networks:
       - network_default
-    ports:
-      - '10080:80'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.echo.rule=Host(`echo.local`)
+      - traefik.http.services.echo.loadbalancer.server.port=80
