@@ -1,0 +1,23 @@
+version: '3'
+
+networks:
+  network_default:
+    driver: bridge
+
+services:
+  portainer:
+    build: ./image/portainer/
+    restart: on-failure
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - network_default
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - volume_portainer:/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portainer.rule=Host(`portainer.local`)
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+
+volumes:
+  volume_portainer:
