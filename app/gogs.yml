@@ -9,10 +9,12 @@ services:
     build: ./image/gogs/
     networks:
       - network_default
-    ports:
-      - '3000:3000'
     volumes:
       - volume_gogs:/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.gogs.rule=Host(`gogs.local`)
+      - traefik.http.services.gogs.loadbalancer.server.port=3000
 
 volumes:
   volume_gogs:
