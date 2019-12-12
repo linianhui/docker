@@ -14,7 +14,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.gogs.rule=Host(`gogs.test`)
-      - traefik.http.routers.gogs.entrypoints=web
+      - traefik.http.routers.gogs.entrypoints=http
       - traefik.http.services.gogs.loadbalancer.server.port=3000
 
 volumes:
