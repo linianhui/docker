@@ -3,7 +3,7 @@ FROM node:10-alpine
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL maintainer="lnhcode@outlook.com"
-LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/master/image/sass/latest"
+LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/master/image/sass/1.23.7"
 
 # https://www.npmjs.com/package/sass
 ENV SASS_VERSION=1.23.7
