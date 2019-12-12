@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  gitea:
+  gitea.test:
     build: ./image/gitea/
     networks:
       - network_default
