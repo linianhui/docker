@@ -5,18 +5,17 @@ networks:
     driver: bridge
 
 services:
-  drone:
+  drone.test:
     build: ./image/drone/
     networks:
       - network_default
-    ports:
-      - '18000:8000'
     volumes:
       - volume_drone:/var/lib/drone/
-    environment:
-      - DRONE_HOST=http://drone:18000
-      - DRONE_GOGS_URL=http://gogs:3000
-      - DRONE_GITLAB_URL=http://gitlab:10080
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.drone.rule=Host(`drone.test`)
+      - traefik.http.routers.drone.entrypoints=http
+      - traefik.http.services.drone.loadbalancer.server.port=80
 
 volumes:
   volume_drone:

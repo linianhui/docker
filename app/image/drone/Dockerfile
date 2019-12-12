@@ -1,31 +1,18 @@
 # https://hub.docker.com/r/drone/drone
 # https://hub.docker.com/r/drone/drone/~/dockerfile
 
-FROM drone/drone
+FROM drone/drone:1.6.3
 
-# http://docs.drone.io/installation/
-# http://docs.drone.io/user-registration/
-# http://docs.drone.io/user-admins/
-ENV DRONE_OPEN=true \
-    DRONE_ADMIN=root \
-    DRONE_SECRET=1234
+# http://docs.drone.io
+ENV DRONE_SERVER_PROTO=http \
+    DRONE_SERVER_HOST=drone.test \
+    DRONE_GIT_ALWAYS_AUTH=false \
+    DRONE_RPC_SECRET=1234 
 
-# http://docs.drone.io/install-for-gogs/
-ENV DRONE_GOGS=true \
-    DRONE_GOGS_GIT_USERNAME=root \
-    DRONE_GOGS_GIT_PASSWORD=1234 \
-    DRONE_GOGS_SKIP_VERIFY=true
 
-# http://docs.drone.io/install-for-gitea/
-ENV DRONE_GITEA=true \
-    DRONE_GITEA_GIT_USERNAME=root \
-    DRONE_GITEA_GIT_PASSWORD=1234 \
-    DRONE_GITEA_SKIP_VERIFY=true
-
-# http://docs.drone.io/install-for-gitlab/
-ENV DRONE_GITLAB=false \
-    DRONE_GITLAB_GIT_USERNAME=root \
-    DRONE_GITLAB_GIT_PASSWORD=12345678 \
-    DRONE_GITLAB_SKIP_VERIFY=true
+# https://docs.drone.io/installation/providers/gitea/
+ENV DRONE_GITEA_SERVER=http://gitea.test \
+    DRONE_GITEA_CLIENT_ID=e713eac4-fb12-4365-98a8-f4b40a0023f5 \
+    DRONE_GITEA_CLIENT_SECRET=KsN2j3tfbGyhOMgTZcsGKNU5bspTx9gImoIrLuJG0XY=
 
 EXPOSE 8000 9000
