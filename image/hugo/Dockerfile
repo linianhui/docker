@@ -3,7 +3,7 @@ FROM ubuntu
 LABEL author="lnhcode@outlook.com"
 
 # https://github.com/gohugoio/hugo/releases
-ENV HUGO_VERSION=0.60.1
+ENV HUGO_VERSION=0.61.0
 
 RUN apt-get update -y && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
