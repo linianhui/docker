@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  docker-api:
+  docker-api.test:
     build: ./image/docker-api/
     restart: always
     networks:

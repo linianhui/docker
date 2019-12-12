@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  jenkins:
+  jenkins.test:
     build: ./image/jenkins/
     networks:
       - network_default

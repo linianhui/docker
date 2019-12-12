@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  registry:
+  registry.test:
     build: ./image/registry/
     networks:
       - network_default

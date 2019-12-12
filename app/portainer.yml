@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  portainer:
+  portainer.test:
     build: ./image/portainer/
     restart: on-failure
     command: -H unix:///var/run/docker.sock

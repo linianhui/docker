@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  traefik:
+  traefik.test:
     build: ./image/traefik/
     restart: always
     networks:

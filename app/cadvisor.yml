@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  cadvisor:
+  cadvisor.test:
     build: ./image/cadvisor/
     networks:
       - network_default

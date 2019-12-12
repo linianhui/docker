@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  echo:
+  echo.test:
     build: ./image/echo/
     networks:
       - network_default

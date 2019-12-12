@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  zipkin:
+  zipkin.test:
     build: ./image/zipkin/
     networks:
       - network_default

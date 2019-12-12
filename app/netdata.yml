@@ -6,7 +6,7 @@ networks:
 
 services:
   # https://github.com/netdata/netdata/tree/master/packaging/docker
-  netdata:
+  netdata.test:
     build: ./image/netdata/
     networks:
       - network_default
