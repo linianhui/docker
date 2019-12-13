@@ -22,4 +22,4 @@ providers:
     exposedByDefault: false
     useBindPortIP: false
     swarmMode: false
-    swarmModeRefreshSeconds: '10s'
+    swarmModeRefreshSeconds: 10

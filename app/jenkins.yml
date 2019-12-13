@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   jenkins.test:
     build: ./image/jenkins/
-    networks:
-      - network_default
     volumes:
       - volume_jenkins:/var/jenkins_home
     labels:

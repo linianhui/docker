@@ -1,15 +1,14 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   docker-api.test:
     build: ./image/docker-api/
     restart: always
-    networks:
-      - network_default
     ports:
       - '2375:2375'
     volumes:

@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   drone.test:
     build: ./image/drone/
-    networks:
-      - network_default
     volumes:
       - volume_drone:/var/lib/drone/
     labels:

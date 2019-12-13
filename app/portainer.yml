@@ -1,16 +1,15 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   portainer.test:
     build: ./image/portainer/
     restart: on-failure
     command: -H unix:///var/run/docker.sock
-    networks:
-      - network_default
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - volume_portainer:/data

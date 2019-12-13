@@ -1,15 +1,14 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   # https://github.com/netdata/netdata/tree/master/packaging/docker
   netdata.test:
     build: ./image/netdata/
-    networks:
-      - network_default
     cap_add:
       - SYS_PTRACE
     security_opt:

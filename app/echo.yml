@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   echo.test:
     build: ./image/echo/
-    networks:
-      - network_default
     labels:
       - traefik.enable=true
       - traefik.http.routers.echo.rule=Host(`echo.test`)

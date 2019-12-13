@@ -1,15 +1,14 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   traefik.test:
     build: ./image/traefik/
     restart: always
-    networks:
-      - network_default
     ports:
       - '80:80'
     volumes:

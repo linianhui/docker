@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   registry.test:
     build: ./image/registry/
-    networks:
-      - network_default
     volumes:
       - volume_registry:/var/lib/registry
     labels:

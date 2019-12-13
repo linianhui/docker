@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   zipkin.test:
     build: ./image/zipkin/
-    networks:
-      - network_default
     labels:
       - traefik.enable=true
       - traefik.http.routers.zipkin.rule=Host(`zipkin.test`)

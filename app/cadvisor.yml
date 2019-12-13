@@ -1,14 +1,13 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
   cadvisor.test:
     build: ./image/cadvisor/
-    networks:
-      - network_default
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
