@@ -9,7 +9,7 @@ services:
   drone.test:
     build: ./image/drone/
     volumes:
-      - volume_drone:/var/lib/drone/
+      - volume_drone:/data
     labels:
       - traefik.enable=true
       - traefik.http.routers.drone.rule=Host(`drone.test`)
