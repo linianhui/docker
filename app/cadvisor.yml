@@ -19,4 +19,4 @@ services:
       - traefik.enable=true
       - traefik.http.routers.cadvisor.rule=Host(`cadvisor.test`)
       - traefik.http.routers.cadvisor.entrypoints=http
-      - traefik.http.services.cadvisor.loadbalancer.server.port=8080
+      - traefik.http.services.cadvisor.loadbalancer.server.port=80
