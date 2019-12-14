@@ -14,7 +14,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.gitea.rule=Host(`gitea.test`)
       - traefik.http.routers.gitea.entrypoints=http
-      - traefik.http.services.gitea.loadbalancer.server.port=3000
+      - traefik.http.services.gitea.loadbalancer.server.port=80
 
 volumes:
   volume_gitea:
