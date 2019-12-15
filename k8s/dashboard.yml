@@ -1,0 +1,135 @@
+# kubectl apply -f dashboard.yml
+# kubectl -n kube-dashboard get secret | grep kube-dashboard-admin-token
+# kubectl -n kube-dashboard describe secret kube-dashboard-admin-token-xxxx
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-dashboard
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kube-dashboard-admin
+  namespace: kube-dashboard
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kube-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: kube-dashboard-admin
+    namespace: kube-dashboard
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    app: kube-dashboard
+  # hard code : https://github.com/kubernetes/dashboard/blob/master/src/app/backend/auth/api/types.go#L28
+  name: kubernetes-dashboard-certs
+  namespace: kube-dashboard
+type: Opaque
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    app: kube-dashboard
+  # hard code : https://github.com/kubernetes/dashboard/blob/master/src/app/backend/client/api/types.go#L33
+  name: kubernetes-dashboard-csrf
+  namespace: kube-dashboard
+type: Opaque
+data:
+  csrf: ""
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    app: kube-dashboard
+  # hard code : https://github.com/kubernetes/dashboard/blob/master/src/app/backend/auth/api/types.go#L25
+  name: kubernetes-dashboard-key-holder
+  namespace: kube-dashboard
+type: Opaque
+  
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    app: kube-dashboard
+  name: kube-dashboard
+  namespace: kube-dashboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: kube-dashboard
+  template:
+    metadata:
+      labels:
+        app: kube-dashboard
+    spec:
+      containers:
+        - name: kube-dashboard
+          # https://hub.docker.com/r/kubernetesui/dashboard
+          image: kubernetesui/dashboard:v2.0.0-beta8
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8443
+              protocol: TCP
+          # https://github.com/kubernetes/dashboard/blob/master/docs/common/dashboard-arguments.md
+          args:
+            - --auto-generate-certificates
+            - --namespace=kube-dashboard
+          volumeMounts:
+            - name: kubernetes-dashboard-certs
+              mountPath: /certs
+            - name: tmp
+              mountPath: /tmp
+          livenessProbe:
+            httpGet:
+              scheme: HTTPS
+              path: /
+              port: 8443
+            initialDelaySeconds: 30
+            timeoutSeconds: 30
+      volumes:
+        - name: kubernetes-dashboard-certs
+          secret:
+            secretName: kubernetes-dashboard-certs
+        - name: tmp
+          emptyDir: {}
+      serviceAccountName: kube-dashboard-admin
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: kube-dashboard
+  name: kube-dashboard
+  namespace: kube-dashboard
+spec:
+  type: NodePort
+  ports:
+    - port: 443
+      targetPort: 8443
+      nodePort: 30080
+  selector:
+    app: kube-dashboard

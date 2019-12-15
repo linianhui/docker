@@ -1,3 +1,17 @@
+# 部署dashboard
+
+```sh
+# 部署dashboard
+kubectl apply -f dashboard.yml
+
+# 查看token
+kubectl -n kube-dashboard get secret | grep kube-dashboard-admin-token-
+kubectl -n kube-dashboard describe secret kube-dashboard-admin-token-xxxx
+
+# 强制删除 kube-dashboard namespace
+kubectl delete namespace kube-dashboard --force --grace-period=0
+```
+
 # 部署traefik ingress
 
 ```sh
