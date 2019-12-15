@@ -16,6 +16,7 @@ ENV SSH_PORT=22 \
     HTTP_PORT=80 \
     APP_NAME=Gitea \
     RUN_MODE=prod \
-    DB_TYPE=sqlite3 
+    DB_TYPE=sqlite3 \
+    ROOT_URL=http://gitea.test
 
 EXPOSE 22 80
