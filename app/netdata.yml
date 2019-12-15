@@ -23,4 +23,4 @@ services:
       - traefik.enable=true
       - traefik.http.routers.netdata.rule=Host(`netdata.test`)
       - traefik.http.routers.netdata.entrypoints=http
-      - traefik.http.services.netdata.loadbalancer.server.port=19999
+      - traefik.http.services.netdata.loadbalancer.server.port=80

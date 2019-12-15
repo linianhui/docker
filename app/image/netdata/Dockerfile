@@ -1,5 +1,4 @@
-# https://github.com/netdata/netdata
-# https://hub.docker.com/r/netdata/netdata
-FROM netdata/netdata
+# https://hub.docker.com/r/lnhcode/netdata
+FROM lnhcode/netdata
 
-EXPOSE 19999
+EXPOSE 80
