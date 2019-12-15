@@ -1,5 +1,4 @@
-# https://hub.docker.com/r/library/registry/
-# https://github.com/docker/distribution-library-image/blob/master/Dockerfile
-FROM registry:2
+# https://hub.docker.com/r/lnhcode/registry/
+FROM lnhcode/registry:2.7
 
-EXPOSE 5000
+EXPOSE 80

@@ -14,7 +14,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.registry.rule=Host(`registry.test`)
       - traefik.http.routers.registry.entrypoints=http
-      - traefik.http.services.registry.loadbalancer.server.port=5000
+      - traefik.http.services.registry.loadbalancer.server.port=80
 
 volumes:
   volume_registry:
