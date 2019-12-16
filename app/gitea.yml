@@ -8,6 +8,7 @@ networks:
 services:
   gitea.test:
     build: ./image/gitea/
+    restart: always
     volumes:
       - volume_gitea:/data
     labels:
