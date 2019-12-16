@@ -8,6 +8,7 @@ networks:
 services:
   registry.test:
     build: ./image/registry/
+    restart: always
     volumes:
       - volume_registry:/var/lib/registry
     labels:
