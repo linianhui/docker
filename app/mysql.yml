@@ -1,18 +1,17 @@
 version: '3'
 
+networks:
+  default:
+    external:
+      name: traefik-network
+
 services:
-  mysql:
+  mysql.test:
     build: ./image/mysql/
-    networks:
-      - network_default
     ports:
       - '3306:3306'
     volumes:
       - volume_mysql:/var/lib/mysql
-
-networks:
-  network_default:
-    driver: bridge
 
 volumes:
   volume_mysql:

@@ -1,18 +1,20 @@
 version: '3'
 
+networks:
+  default:
+    external:
+      name: traefik-network
+
 services:
-  mysql-admin:
+  mysql-admin.test:
     build: ./image/mysql-admin/
-    networks:
-      - network_default
-    ports:
-      - '13306:80'
     volumes:
       - volume_mysql-admin:/sessions
-
-networks:
-  network_default:
-    driver: bridge
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mysql-admin.rule=Host(`mysql-admin.test`)
+      - traefik.http.routers.mysql-admin.entrypoints=http
+      - traefik.http.services.mysql-admin.loadbalancer.server.port=80
 
 volumes:
   volume_mysql-admin:
