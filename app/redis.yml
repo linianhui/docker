@@ -1,14 +1,14 @@
 version: '3'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external:
+      name: traefik-network
 
 services:
-  redis:
+  redis.test:
     build: ./image/redis/
-    networks:
-      - network_default
+    restart: always
     ports:
       - '6379:6379'
     volumes:

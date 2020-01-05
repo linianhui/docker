@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: traefik-network
+
+services:
+  admin.redis.test:
+    build: ./image/admin.redis/
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.admin-redis.rule=Host(`admin.redis.test`)
+      - traefik.http.routers.admin-redis.entrypoints=http
+      - traefik.http.services.admin-redis.loadbalancer.server.port=5001
