@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: traefik-network
+
+services:
+  admin.mongo.test:
+    build: ./image/admin.mongo/
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.admin-mongo.rule=Host(`admin.mongo.test`)
+      - traefik.http.routers.admin-mongo.entrypoints=http
+      - traefik.http.services.admin-mongo.loadbalancer.server.port=8081

@@ -1,24 +1,20 @@
 version: '3'
 
-
 networks:
-  network_default:
-    driver: bridge
-
+  default:
+    external:
+      name: traefik-network
 
 services:
-
-  mongo:
+  mongo.test:
     build: ./image/mongo/
-    networks:
-      - network_default
+    restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - volume_mongo-db:/data/db
       - volume_mongo-configdb:/data/configdb
 
-
-volumes: 
+volumes:
   volume_mongo-db:
   volume_mongo-configdb:
