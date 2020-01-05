@@ -49,5 +49,5 @@ http api : http://192.168.2.235
 # Debug
 
 ```sh
-kubectl --namespace default run tool --stdin --tty --image=lnhcode/tool --restart=Never --image-pull-policy=Always --rm sh
+kubectl --namespace default run tool --stdin --tty --image=lnhcode/tool --restart=Never --rm --command nslookup -- github.com
 ```
