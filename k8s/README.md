@@ -50,5 +50,5 @@ http api : http://192.168.2.235
 
 ```sh
 # --image-pull-policy=Always
-kubectl --namespace default run tool --stdin --tty --image=lnhcode/tool --restart=Never --rm --command nslookup -- github.com
+kubectl run tool --namespace default --image=lnhcode/tool --generator=run-pod/v1 --restart=Never --stdin --tty --rm --command -- nslookup github.com
 ```
