@@ -12,4 +12,5 @@ RUN apk --update --no-cache add \
     curl \
     wget \
     vim \
-    git
+    git \
+    nghttp2
