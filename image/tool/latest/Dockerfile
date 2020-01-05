@@ -13,4 +13,5 @@ RUN apk --update --no-cache add \
     wget \
     vim \
     git \
-    nghttp2
+    nghttp2 \
+    jq
