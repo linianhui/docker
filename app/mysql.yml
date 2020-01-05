@@ -8,6 +8,7 @@ networks:
 services:
   mysql.test:
     build: ./image/mysql/
+    restart: always
     ports:
       - '3306:3306'
     volumes:

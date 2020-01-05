@@ -30,6 +30,6 @@ cat <<EOF >> /etc/hosts
 127.0.0.1 netdata.test
 127.0.0.1 cadvisor.test
 127.0.0.1 drone.test
-127.0.0.1 mysql-admin.test
+127.0.0.1 admin.mysql.test
 EOF
 ```
