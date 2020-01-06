@@ -1,7 +1,10 @@
 # 部署dashboard
 
 ```sh
-# 部署dashboard
+# 监控服务
+kubectl apply -f metrics-server.yml
+
+# 部署dashboard, cpu+memory监控依赖metrics-server
 kubectl apply -f dashboard.yml
 
 # 查看token
