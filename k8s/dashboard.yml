@@ -1,3 +1,4 @@
+# https://github.com/kubernetes/dashboard/blob/master/aio/deploy/recommended.yaml
 # kubectl apply -f dashboard.yml
 # kubectl -n kube-dashboard get secret | grep kube-dashboard-admin-token
 # kubectl -n kube-dashboard describe secret kube-dashboard-admin-token-xxxx
@@ -50,7 +51,7 @@ metadata:
   namespace: kube-dashboard
 type: Opaque
 data:
-  csrf: ""
+  csrf: ''
 
 ---
 apiVersion: v1
@@ -62,28 +63,28 @@ metadata:
   name: kubernetes-dashboard-key-holder
   namespace: kube-dashboard
 type: Opaque
-  
+
 ---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
   labels:
-    app: kube-dashboard
-  name: kube-dashboard
+    app: dashboard-ui
+  name: dashboard-ui
   namespace: kube-dashboard
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: kube-dashboard
+      app: dashboard-ui
   template:
     metadata:
       labels:
-        app: kube-dashboard
+        app: dashboard-ui
     spec:
       containers:
-        - name: kube-dashboard
+        - name: dashboard-ui
           # https://hub.docker.com/r/kubernetesui/dashboard
           image: kubernetesui/dashboard:v2.0.0-beta8
           imagePullPolicy: Always
@@ -122,8 +123,8 @@ kind: Service
 apiVersion: v1
 metadata:
   labels:
-    app: kube-dashboard
-  name: kube-dashboard
+    app: dashboard-ui
+  name: dashboard-ui
   namespace: kube-dashboard
 spec:
   type: NodePort
@@ -132,4 +133,4 @@ spec:
       targetPort: 8443
       nodePort: 30080
   selector:
-    app: kube-dashboard
+    app: dashboard-ui
