@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/microsoft-dotnet-core/
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL maintainer="lnhcode@outlook.com"
