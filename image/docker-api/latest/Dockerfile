@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/lnhcode/alpine
-FROM lnhcode/alpine:3.10
+FROM lnhcode/alpine:3.11
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL maintainer="lnhcode@outlook.com"
