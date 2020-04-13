@@ -46,7 +46,7 @@ spec:
           emptyDir: {}
       containers:
         - name: metrics-server
-          image: gcr.azk8s.cn/google_containers/metrics-server-amd64:v0.3.6
+          image: registry.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.6
           args:
             - --cert-dir=/tmp
             - --secure-port=4443
