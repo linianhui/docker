@@ -3,7 +3,7 @@ FROM lnhcode/alpine:3.11
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL maintainer="lnhcode@outlook.com"
-LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/master/image/tool/latest"
+LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/tool/latest"
 
 RUN apk --update --no-cache add \
     tcpdump \

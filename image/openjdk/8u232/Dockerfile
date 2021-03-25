@@ -3,6 +3,6 @@ FROM openjdk:8u232
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL MAINTAINER="lnhcode@outlook.com"
-LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/master/image/openjdk/8u232"
+LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/openjdk/8u232"
 
 COPY sources.list /etc/apt/sources.list
