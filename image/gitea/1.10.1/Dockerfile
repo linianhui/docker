@@ -2,7 +2,6 @@
 FROM gitea/gitea:1.10.1
 
 # https://docs.docker.com/engine/reference/builder/#label
-LABEL maintainer="lnhcode@outlook.com"
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/gitea/1.10.1"
 
 # https://github.com/go-gitea/gitea/issues/8065#issuecomment-527656182

@@ -2,7 +2,6 @@
 FROM lnhcode/alpine:3.11
 
 # https://docs.docker.com/engine/reference/builder/#label
-LABEL maintainer="lnhcode@outlook.com"
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/docker-api/latest"
 
 # http://www.dest-unreach.org/socat/

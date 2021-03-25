@@ -2,7 +2,6 @@
 FROM lnhcode/alpine:3.10
 
 # https://docs.docker.com/engine/reference/builder/#label
-LABEL MAINTAINER="lnhcode@outlook.com"
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/hugo/0.64.1"
 
 # https://github.com/gohugoio/hugo/releases
