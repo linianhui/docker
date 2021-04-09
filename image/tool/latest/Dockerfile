@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/lnhcode/alpine
-FROM lnhcode/alpine:3.11
+FROM lnhcode/alpine:3.14
 
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/tool/latest"
