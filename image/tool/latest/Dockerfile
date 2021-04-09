@@ -4,6 +4,8 @@ FROM lnhcode/alpine:3.13
 # https://docs.docker.com/engine/reference/builder/#label
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/tool/latest"
 
+VOLUME [ "/data" ]
+
 RUN apk --update --no-cache add \
     tcpdump \
     net-tools \
@@ -13,4 +15,5 @@ RUN apk --update --no-cache add \
     vim \
     git \
     nghttp2 \
-    jq
+    jq \
+    coreutils
