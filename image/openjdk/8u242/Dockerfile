@@ -5,3 +5,5 @@ FROM openjdk:8u242
 LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/openjdk/8u242"
 
 COPY sources.list /etc/apt/sources.list
+
+ENV JAVA_DEBUG_OPTIONS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
