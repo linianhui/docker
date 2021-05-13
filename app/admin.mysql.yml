@@ -8,6 +8,7 @@ networks:
 services:
   admin.mysql.test:
     build: ./image/admin.mysql/
+    restart: always
     volumes:
       - volume_admin-mysql:/sessions
     labels:
