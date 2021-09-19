@@ -26,7 +26,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: analyze the imgae meta to be pushed
-        run: ./ci.sh init ${github.event.head_commit.message#*--ci}
+        env:
+           GIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: ./ci.sh init ${GIT_MESSAGE#*--ci}
 
       - name: docker build
         run: ./ci.sh build
