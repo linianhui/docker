@@ -12,7 +12,7 @@ RUN wget -O /tmp/hbase.tar.gz $HBASE_DOWNLOAD_URL \
 #COPY conf/ /hbase/conf/
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
 
 # 2821  zookeeper client port
 EXPOSE 2821
