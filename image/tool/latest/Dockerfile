@@ -1,5 +1,4 @@
-# https://hub.docker.com/r/lnhcode/alpine
-FROM ghcr.io/linianhui:3.14
+FROM ghcr.io/linianhui/alpine:3.14
 
 VOLUME [ "/data" ]
 
