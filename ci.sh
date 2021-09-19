@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 
 IMAGE_PATH_FILE=image.path.txt
 IMAGE_TAGS_FILE=image.tags.txt
