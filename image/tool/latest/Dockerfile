@@ -1,8 +1,5 @@
 # https://hub.docker.com/r/lnhcode/alpine
-FROM lnhcode/alpine:3.13
-
-# https://docs.docker.com/engine/reference/builder/#label
-LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/tool/latest"
+FROM ghcr.io/linianhui:3.14
 
 VOLUME [ "/data" ]
 

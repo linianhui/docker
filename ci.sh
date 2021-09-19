@@ -33,6 +33,7 @@ function build(){
 
 function push(){
     cat $IMAGE_TAGS_FILE
+    docker images
     while read line
     do
         echo -e "\n\ndocker push $GREEN$line$END\n"
