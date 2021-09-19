@@ -1,4 +1,4 @@
-FROM portainer/portainer-ce:2.6.1
+FROM portainer/portainer-ce:2.6.3
 
 ENTRYPOINT ["/portainer", "--bind=:80"]
 
