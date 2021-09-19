@@ -5,7 +5,7 @@ WORKDIR /hbase
 ENV HBASE_VERSION=2.3.6
 ENV HBASE_DOWNLOAD_URL=https://dlcdn.apache.org/hbase/2.3.6/hbase-2.3.6-bin.tar.gz
 
-RUN wget -O /tmp/hbase.tar.gz $HBASE_DOWNLOAD_URL \
+RUN wget -q -O /tmp/hbase.tar.gz $HBASE_DOWNLOAD_URL \
     && tar --strip 1 -xzf /tmp/hbase.tar.gz -C /hbase \
     && rm -f /tmp/hbase.tar.gz
 
