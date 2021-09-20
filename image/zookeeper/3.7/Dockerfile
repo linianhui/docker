@@ -2,11 +2,11 @@ FROM zookeeper:3.7
 
 COPY sources.list /etc/apt/sources.list
 
-RUN apt-get update \
-    && apt-get -y upgrade \
-    && apt-get -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils\
-    && apt-get -y autoremove \
-    && apt-get -y clean
+RUN apt update \
+    && apt -y upgrade \
+    && apt -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils\
+    && apt -y autoremove \
+    && apt -y clean
 
 # client port
 EXPOSE 2181
