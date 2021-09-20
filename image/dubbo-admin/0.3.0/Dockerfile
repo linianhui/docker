@@ -1,12 +1,10 @@
 FROM maven:3.8-openjdk-8 as builder
 
-WORKDIR /src
-
-RUN git clone https://github.com/apache/dubbo-admin.git && git checkout 0.3.0
+RUN git clone -b 0.3.0 --depth=1 https://github.com/apache/dubbo-admin.git src
 
 COPY application.properties /src/dubbo-admin-distribution/src/bin/config/
 
-RUN mvn clean package -Dmaven.test.skip=true
+RUN cd src && mvn clean package -Dmaven.test.skip=true
 
 FROM ghcr.io/linianhui/openjdk:8u302
 
