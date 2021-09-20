@@ -6,6 +6,7 @@ COPY application.properties /src/dubbo-admin-server/src/main/resources/
 
 RUN cd src && mvn clean package -q -Dmaven.test.skip=true
 
+
 FROM ghcr.io/linianhui/openjdk:8u302
 
 WORKDIR /dubbo-admin
