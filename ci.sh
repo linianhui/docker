@@ -1,6 +1,8 @@
 IMAGE_PATH=image
 REGISTRY=ghcr.io/linianhui
 LABEL_URL_PREFIX=org.opencontainers.image.url=https://github.com/linianhui/docker/tree/main
+LABEL_VERSION_PREFIX=org.opencontainers.image.version=https://github.com/linianhui/docker/commit
+LABEL_CREATED_NAME=org.opencontainers.image.created
 
 IMAGE_PATH_FILE=image.path.txt
 IMAGE_TAGS_FILE=image.tags.txt
@@ -23,9 +25,11 @@ function build(){
         if [ -d "$dir" ]; then
             tag="${line/\//:}"
             tag1="$REGISTRY/$tag"
-            label1="$LABEL_URL_PREFIX/$dir"
-            echo -e "\n\ndocker build --tag $GREEN$tag1$END --label $GREEN$label1$END $GREEN$dir$END \n"
-            docker build --tag $tag1 --label $label1 $dir
+            labelUrl="$LABEL_URL_PREFIX/$dir"
+            labelVersion="$LABEL_VERSION_PREFIX/$GIT_COMMIT_SHA"
+            lableCreated="$LABEL_CREATED_NAME=$(date --iso-8601=seconds --utc)"
+            echo -e "\n\ndocker build --tag $GREEN$tag1$END --label $GREEN$labelUrl$END --label $GREEN$labelVersion$END --label $GREEN$lableCreated$END $GREEN$dir$END \n"
+            docker build --tag $tag1 --label $labelUrl --label $labelVersion --label $lableCreated $dir
             echo $tag1 >> $IMAGE_TAGS_FILE
         fi
     done < $IMAGE_PATH_FILE
