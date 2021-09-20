@@ -26,7 +26,7 @@ function build(){
             tag="${line/\//:}"
             tag1="$REGISTRY/$tag"
             labelUrl="$LABEL_URL_PREFIX/$dir"
-            labelVersion="$LABEL_VERSION_PREFIX/$GIT_COMMIT_SHA"
+            labelVersion="$LABEL_VERSION_PREFIX/$1"
             lableCreated="$LABEL_CREATED_NAME=$(date --iso-8601=seconds --utc)"
             echo -e "\n\ndocker build --tag $GREEN$tag1$END --label $GREEN$labelUrl$END --label $GREEN$labelVersion$END --label $GREEN$lableCreated$END $GREEN$dir$END \n"
             docker build --tag $tag1 --label $labelUrl --label $labelVersion --label $lableCreated $dir

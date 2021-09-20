@@ -28,9 +28,7 @@ jobs:
         run: ./ci.sh init ${GIT_MESSAGE#*--ci}
 
       - name: docker build
-        env:
-          GIT_COMMIT_SHA: ${{ GITHUB_SHA }}
-        run: ./ci.sh build
+        run: ./ci.sh build ${GITHUB_SHA}
 
       - name: docker push
         run: ./ci.sh push
