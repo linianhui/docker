@@ -14,6 +14,6 @@ ENV DUBBO_ADMIN_VERSION=0.3.0
 
 COPY --from=builder /src/dubbo-admin-distribution/target/dubbo-admin-0.3.0.jar app.jar
 
-ENTRYPOINT ["/bin/bash", "-c", "java $JAVA_OPTIONS $JAVA_DEBUG_OPTIONS -jar app.jar"]
+ENTRYPOINT ["/bin/bash", "-c", "java $JAVA_OPTIONS -jar app.jar"]
 
 EXPOSE 8080
