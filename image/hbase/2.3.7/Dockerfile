@@ -14,8 +14,8 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
 
-# 2821  zookeeper client port
-EXPOSE 2821
+# 2181  zookeeper client port
+EXPOSE 2181
 
 # 16000 hbase master port
 EXPOSE 16000
