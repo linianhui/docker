@@ -5,7 +5,7 @@
   <!-- https://hbase.apache.org/2.3/book.html#quickstart_pseudo -->
   <property>
     <name>hbase.cluster.distributed</name>
-    <value>true</value>
+    <value>false</value>
   </property>
   <property>
     <name>hbase.rootdir</name>
