@@ -17,4 +17,5 @@ COPY --from=builder /src/dubbo-admin-distribution/target/dubbo-admin-0.4.0.jar a
 
 ENTRYPOINT ["/bin/bash", "-c", "java $JAVA_OPTIONS -jar app.jar"]
 
+
 EXPOSE 8080
