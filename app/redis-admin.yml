@@ -7,7 +7,7 @@ networks:
 
 services:
   admin.redis.test:
-    build: ./image/admin.redis/
+    image: ghcr.io/linianhui/redis-admin
     labels:
       - traefik.enable=true
       - traefik.http.routers.admin-redis.rule=Host(`admin.redis.test`)
