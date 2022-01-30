@@ -42,6 +42,7 @@ function build(){
 
             echo -e "docker pull $GREEN$baseImageName$END"
             docker pull $baseImageName
+            docker inspect $baseImageName
 
             baseImageDigest=$(__get_image_digest $baseImageName)
 
@@ -99,7 +100,7 @@ function __get_image_digest(){
 }
 
 function __cat_green(){
-    echo -e "\n${GREEN}cat $1$END"
+    echo -e "\ncat$GREEN$1$END"
     while read line
     do
         echo -e "$GREEN$line$END"
