@@ -1,8 +1,7 @@
 IMAGE_REGISTRY=ghcr.io/linianhui
 IMAGE_PATH_PREFIX=image
 IMAGE_REPO_URL=https://github.com/linianhui/docker
-IMAGE_REPO_SOURCE_URL_PREFIX=$IMAGE_REPO_URL/tree/main
-IMAGE_COMMIT_URl_PREFIX=https://github.com/linianhui/docker/commit
+IMAGE_REPO_VERSION_URL_PREFIX=$IMAGE_REPO_URL/docker/tree
 
 IMAGE_PATH_FILE=image-path.txt
 IMAGE_TAGS_FILE=image-tags.txt
@@ -37,10 +36,11 @@ function build(){
         if [ -d "$dir" ]; then
             tag="${line/\//:}"
             tagWithRegistry="$IMAGE_REGISTRY/$tag"
+            version=${dir##*/}
 
             baseImageName=$(__get_base_image_name $dir/Dockerfile)
 
-            echo "docker pull $GREEN$baseImageName$END"
+            echo -e "docker pull $GREEN$baseImageName$END"
             docker pull $baseImageName
 
             baseImageDigest=$(__get_image_digest $baseImageName)
@@ -48,8 +48,8 @@ function build(){
             lableBaseName="$LABEL_BASE_NAME=$baseImageName"
             lableBaseDigest="$LABEL_BASE_DIGEST=$baseImageDigest"
             labelUrl="$LABEL_URL=$IMAGE_REPO_URL"
-            labelSource="$LABEL_SOURCE=$IMAGE_REPO_SOURCE_URL_PREFIX/$dir"
-            labelVersion="$LABEL_VERSION=$IMAGE_COMMIT_URl_PREFIX/$COMMIT_SHA"
+            labelSource="$LABEL_SOURCE=$IMAGE_REPO_VERSION_URL_PREFIX/$COMMIT_SHA/$dir"
+            labelVersion="$LABEL_VERSION=$version"
             lableCreated="$LABEL_CREATED=$(date --iso-8601=seconds --utc)"
 
             echo -e "\n"
@@ -99,8 +99,11 @@ function __get_image_digest(){
 }
 
 function __cat_green(){
-    content=$(cat $1)
-    echo -e "$GREEN$content$END"
+    echo -e "\n$GREENcat $1$END"
+    while read line
+    do
+        echo -e "$GREEN$line$END"
+    done < $1
 }
 
 case $1 in
