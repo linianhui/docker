@@ -7,7 +7,7 @@ networks:
 
 services:
   traefik.test:
-    build: ./image/traefik/
+    image: ghcr.io/linianhui/traefik:2.4
     restart: always
     ports:
       - '80:80'
