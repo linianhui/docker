@@ -1,7 +1,7 @@
 IMAGE_REGISTRY=ghcr.io/linianhui
 IMAGE_PATH_PREFIX=image
 IMAGE_REPO_URL=https://github.com/linianhui/docker
-IMAGE_REPO_VERSION_URL_PREFIX=$IMAGE_REPO_URL/docker/tree
+IMAGE_REPO_VERSION_URL_PREFIX=$IMAGE_REPO_URL/tree
 
 IMAGE_PATH_FILE=image-path.txt
 IMAGE_TAGS_FILE=image-tags.txt
@@ -99,7 +99,7 @@ function __get_image_digest(){
 }
 
 function __cat_green(){
-    echo -e "\n$GREENcat $1$END"
+    echo -e "\n${GREEN}cat $1$END"
     while read line
     do
         echo -e "$GREEN$line$END"
