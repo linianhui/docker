@@ -7,7 +7,7 @@ networks:
 
 services:
   redis.test:
-    build: ./image/redis/
+    image: ghcr.io/linianhui/redis:6.2
     restart: always
     ports:
       - '6379:6379'
