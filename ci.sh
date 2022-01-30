@@ -1,7 +1,7 @@
 IMAGE_REGISTRY=ghcr.io/linianhui
 IMAGE_PATH_PREFIX=image
-IMAGE_AUTHER=lnhdyx@outlook.com
-IMAGE_REPO_URL_PREFIX=https://github.com/linianhui/docker/tree/main
+IMAGE_REPO_URL=https://github.com/linianhui/docker
+IMAGE_REPO_SOURCE_URL_PREFIX=$IMAGE_REPO_URL/tree/main
 IMAGE_COMMIT_URl_PREFIX=https://github.com/linianhui/docker/commit
 
 IMAGE_PATH_FILE=image-path.txt
@@ -11,7 +11,6 @@ GREEN='\033[0;32m'
 END='\033[0m'
 
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md
-LABEL_AUTHERS=org.opencontainers.image.authors
 LABEL_URL=org.opencontainers.image.url
 LABEL_SOURCE=org.opencontainers.image.source
 LABEL_VERSION=org.opencontainers.image.version
@@ -34,27 +33,38 @@ function build(){
         dir="$IMAGE_PATH_PREFIX/$line"
         if [ -d "$dir" ]; then
             tag="${line/\//:}"
-            tagWithRegistry="$REGISTRY/$tag"
-            labelAuthers="$LABEL_AUTHERS=$IMAGE_AUTHER"
-            labelUrl="$LABEL_URL=$IMAGE_REPO_URL_PREFIX$dir"
-            labelSource="$LABEL_SOURCE=$IMAGE_REPO_URL_PREFIX$dir"
+            tagWithRegistry="$IMAGE_REGISTRY/$tag"
+
+            baseImageName=$(__get_base_image_name $dir/Dockerfile)
+
+            echo "docker pull $GREEN$baseImageName$END"
+            docker pull $baseImageName
+
+            baseImageDigest=$(__get_image_digest $baseImageName)
+
+            lableBaseName="$LABEL_BASE_NAME=$baseImageName"
+            lableBaseDigest="$LABEL_BASE_DIGEST=$baseImageDigest"
+            labelUrl="$LABEL_URL=$IMAGE_REPO_URL"
+            labelSource="$LABEL_SOURCE=$IMAGE_REPO_SOURCE_URL_PREFIX/$dir"
             labelVersion="$LABEL_VERSION=$IMAGE_COMMIT_URl_PREFIX/$COMMIT_SHA"
             lableCreated="$LABEL_CREATED=$(date --iso-8601=seconds --utc)"
 
-            echo -e '\n'
-            echo -e "\cdocker build \\"
-            echo -e "\c  --tag $GREEN$tagWithRegistry$END \\"
-            echo -e "\c  --label $GREEN$labelAuthers$END \\"
-            echo -e "\c  --label $GREEN$labelUrl$END \\"
-            echo -e "\c  --label $GREEN$labelSource$END \\"
-            echo -e "\c  --label $GREEN$labelVersion$END \\"
-            echo -e "\c  --label $GREEN$lableCreated$END \\"
-            echo -e "\c  $dir"
-            echo -e '\n'
+            echo "\n"
+            echo "docker build \\"
+            echo "  --tag $GREEN$tagWithRegistry$END \\"
+            echo "  --label $GREEN$lableBaseName$END \\"
+            echo "  --label $GREEN$lableBaseDigest$END \\"
+            echo "  --label $GREEN$labelUrl$END \\"
+            echo "  --label $GREEN$labelSource$END \\"
+            echo "  --label $GREEN$labelVersion$END \\"
+            echo "  --label $GREEN$lableCreated$END \\"
+            echo "  $GREEN$dir$END"
+            echo "\n"
 
             docker build \
             --tag $tagWithRegistry \
-            --label $labelAuthers \
+            --label $lableBaseName \
+            --label $lableBaseDigest \
             --label $labelUrl \
             --label $labelSource \
             --label $labelVersion \
@@ -74,6 +84,15 @@ function push(){
         echo -e "\n\ndocker push $GREEN$line$END\n"
         docker push $line
     done < $IMAGE_TAGS_FILE
+}
+
+function __get_base_image_name(){
+    fromLine=$(grep ^FROM $1 | tail -1)
+    echo ${fromLine:5}
+}
+
+function __get_image_digest(){
+    docker inspect --format='{{.Id}}' $1
 }
 
 case $1 in
