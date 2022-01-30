@@ -1,6 +1,6 @@
 # https://github.com/containous/traefik
 # https://hub.docker.com/_/traefik/
-FROM traefik:v2.4
+FROM traefik:v2.6
 
 COPY . /app
 
