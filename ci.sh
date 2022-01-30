@@ -42,7 +42,6 @@ function build(){
 
             echo -e "docker pull $GREEN$baseImageName$END"
             docker pull $baseImageName
-            docker inspect $baseImageName
 
             baseImageDigest=$(__get_image_digest $baseImageName)
 
