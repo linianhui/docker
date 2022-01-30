@@ -1,9 +1,10 @@
+# https://hub.docker.com/_/zookeeper/
+
 FROM zookeeper:3.7
 
 COPY sources.list /etc/apt/sources.list
 
 RUN apt update \
-    && apt -y upgrade \
     && apt -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils\
     && apt -y autoremove \
     && apt -y clean
