@@ -46,33 +46,33 @@ function build(){
 
             baseImageDigest=$(__get_image_digest $baseImageName)
 
-            lableBaseName="$LABEL_BASE_NAME=$baseImageName"
-            lableBaseDigest="$LABEL_BASE_DIGEST=$baseImageDigest"
+            labelBaseName="$LABEL_BASE_NAME=$baseImageName"
+            labelBaseDigest="$LABEL_BASE_DIGEST=$baseImageDigest"
             labelUrl="$LABEL_URL=$IMAGE_REPO_URL"
             labelSource="$LABEL_SOURCE=$IMAGE_REPO_VERSION_URL_PREFIX/$COMMIT_SHA/$dir"
             labelVersion="$LABEL_VERSION=$version"
-            lableCreated="$LABEL_CREATED=$(date --iso-8601=seconds --utc)"
+            labelCreated="$LABEL_CREATED=$(date --iso-8601=seconds --utc)"
 
             echo -e "\n"
             echo -e "docker build \\"
             echo -e "  --tag $GREEN$tagWithRegistry$END \\"
-            echo -e "  --label $GREEN$lableBaseName$END \\"
-            echo -e "  --label $GREEN$lableBaseDigest$END \\"
+            echo -e "  --label $GREEN$labelBaseName$END \\"
+            echo -e "  --label $GREEN$labelBaseDigest$END \\"
             echo -e "  --label $GREEN$labelUrl$END \\"
             echo -e "  --label $GREEN$labelSource$END \\"
             echo -e "  --label $GREEN$labelVersion$END \\"
-            echo -e "  --label $GREEN$lableCreated$END \\"
+            echo -e "  --label $GREEN$labelCreated$END \\"
             echo -e "  $GREEN$dir$END"
             echo -e "\n"
 
             docker build \
             --tag $tagWithRegistry \
-            --label $lableBaseName \
-            --label $lableBaseDigest \
+            --label $labelBaseName \
+            --label $labelBaseDigest \
             --label $labelUrl \
             --label $labelSource \
             --label $labelVersion \
-            --label $lableCreated \
+            --label $labelCreated \
             $dir
 
             echo $tagWithRegistry >> $IMAGE_TAGS_FILE
@@ -96,11 +96,12 @@ function __get_base_image_name(){
 }
 
 function __get_image_digest(){
-    docker inspect --format='{{.Id}}' $1
+    digest=$(docker inspect --format='{{index .RepoDigests 0}}' $1)
+    echo ${digest##*@}
 }
 
 function __cat_green(){
-    echo -e "\ncat$GREEN$1$END"
+    echo -e "\ncat $GREEN$1$END"
     while read line
     do
         echo -e "$GREEN$line$END"
