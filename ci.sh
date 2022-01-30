@@ -19,15 +19,18 @@ LABEL_BASE_NAME=org.opencontainers.image.base.name
 LABEL_BASE_DIGEST=org.opencontainers.image.base.digest
 
 function init(){
-    rm $IMAGE_PATH_FILE
+    echo -e "rm $GREEN$IMAGE_PATH_FILE$END"
     for dir in $@; do
         echo $dir >> $IMAGE_PATH_FILE
     done
+    __cat_green $IMAGE_PATH_FILE
 }
 
 function build(){
     COMMIT_SHA=$1
+    echo -e "rm $GREEN$IMAGE_TAGS_FILE$END"
     rm $IMAGE_TAGS_FILE
+    __cat_green $IMAGE_PATH_FILE
     while read line
     do
         dir="$IMAGE_PATH_PREFIX/$line"
@@ -49,17 +52,17 @@ function build(){
             labelVersion="$LABEL_VERSION=$IMAGE_COMMIT_URl_PREFIX/$COMMIT_SHA"
             lableCreated="$LABEL_CREATED=$(date --iso-8601=seconds --utc)"
 
-            echo "\n"
-            echo "docker build \\"
-            echo "  --tag $GREEN$tagWithRegistry$END \\"
-            echo "  --label $GREEN$lableBaseName$END \\"
-            echo "  --label $GREEN$lableBaseDigest$END \\"
-            echo "  --label $GREEN$labelUrl$END \\"
-            echo "  --label $GREEN$labelSource$END \\"
-            echo "  --label $GREEN$labelVersion$END \\"
-            echo "  --label $GREEN$lableCreated$END \\"
-            echo "  $GREEN$dir$END"
-            echo "\n"
+            echo -e "\n"
+            echo -e "docker build \\"
+            echo -e "  --tag $GREEN$tagWithRegistry$END \\"
+            echo -e "  --label $GREEN$lableBaseName$END \\"
+            echo -e "  --label $GREEN$lableBaseDigest$END \\"
+            echo -e "  --label $GREEN$labelUrl$END \\"
+            echo -e "  --label $GREEN$labelSource$END \\"
+            echo -e "  --label $GREEN$labelVersion$END \\"
+            echo -e "  --label $GREEN$lableCreated$END \\"
+            echo -e "  $GREEN$dir$END"
+            echo -e "\n"
 
             docker build \
             --tag $tagWithRegistry \
@@ -77,7 +80,7 @@ function build(){
 }
 
 function push(){
-    cat $IMAGE_TAGS_FILE
+    __cat_green $IMAGE_TAGS_FILE
     docker images
     while read line
     do
@@ -93,6 +96,11 @@ function __get_base_image_name(){
 
 function __get_image_digest(){
     docker inspect --format='{{.Id}}' $1
+}
+
+function __cat_green(){
+    content=$(cat $1)
+    echo -e "$GREEN$content$END"
 }
 
 case $1 in
