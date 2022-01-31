@@ -7,8 +7,13 @@ networks:
 
 services:
   admin.mysql.test:
-    build: ./image/admin.mysql/
+    image: ghcr.io/linianhui/mysql-admin:5.1
     restart: always
+    environment:
+      - PMA_HOST=mysql.test
+      - PMA_PORT=3306
+      - MYSQL_ROOT_PASSWORD=1234
+      - PMA_ARBITRARY=1
     volumes:
       - volume_admin-mysql:/sessions
     labels:
