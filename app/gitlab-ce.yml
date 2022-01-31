@@ -1,9 +1,9 @@
-version: '3'
-
+version: '3.9'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external: true
+    name: traefik-network
 
 
 services:
@@ -24,7 +24,7 @@ services:
       - volume_gitlab-ce-data:/var/opt/gitlab
 
 
-volumes: 
+volumes:
   volume_gitlab-ce-etc:
   volume_gitlab-ce-log:
   volume_gitlab-ce-data:

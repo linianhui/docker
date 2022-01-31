@@ -1,8 +1,9 @@
-version: '3'
+version: '3.9'
 
 networks:
-  network_default:
-    driver: bridge
+  default:
+    external: true
+    name: traefik-network
 
 services:
   elasticsearch:
