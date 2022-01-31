@@ -1,7 +1,8 @@
-FROM ghcr.io/linianhui/openjdk:8u302
+FROM ghcr.io/linianhui/openjdk:8u312
 
 WORKDIR /hbase
 
+# https://hbase.apache.org/
 ENV HBASE_VERSION=2.3.7
 ENV HBASE_DOWNLOAD_URL=https://dlcdn.apache.org/hbase/2.3.7/hbase-2.3.7-bin.tar.gz
 
@@ -9,7 +10,6 @@ RUN wget -q -O /tmp/hbase.tar.gz $HBASE_DOWNLOAD_URL \
     && tar --strip 1 -xzf /tmp/hbase.tar.gz -C /hbase \
     && rm -f /tmp/hbase.tar.gz
 
-#COPY conf/ /hbase/conf/
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["sh", "/docker-entrypoint.sh"]

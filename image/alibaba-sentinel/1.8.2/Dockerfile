@@ -1,7 +1,8 @@
-FROM ghcr.io/linianhui/openjdk:8u302
+FROM ghcr.io/linianhui/openjdk:8u312
 
 WORKDIR /app
 
+# https://github.com/alibaba/Sentinel/releases
 ENV SENTINEL_VERSION=1.8.2
 ENV SENTINEL_DOWNLOAD_URL=https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_VERSION}/sentinel-dashboard-${SENTINEL_VERSION}.jar
 
