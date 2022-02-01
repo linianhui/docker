@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/mongo/
 # https://github.com/docker-library/mongo
-FROM mongo:4.4
+FROM mongo:3.6
 
 COPY sources.list /etc/apt/sources.list
 
