@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 IMAGE_REGISTRY=ghcr.io/linianhui
 IMAGE_PATH_PREFIX=image
 IMAGE_REPO_URL=https://github.com/linianhui/docker
