@@ -8,6 +8,8 @@ networks:
 services:
   admin.redis.test:
     image: ghcr.io/linianhui/redis-admin
+    hostname: admin.redis.test
+    container_name: app-redis-admin
     labels:
       - traefik.enable=true
       - traefik.http.routers.admin-redis.rule=Host(`admin.redis.test`)

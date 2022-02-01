@@ -8,6 +8,8 @@ networks:
 services:
   redis.test:
     image: ghcr.io/linianhui/redis:6.2
+    hostname: redis.test
+    container_name: app-redis
     restart: always
     ports:
       - '6379:6379'

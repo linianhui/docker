@@ -8,6 +8,8 @@ networks:
 services:
   traefik.test:
     image: ghcr.io/linianhui/traefik:v2.6
+    hostname: traefik.test
+    container_name: app-traefik
     restart: always
     ports:
       - '80:80'

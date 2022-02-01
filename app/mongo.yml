@@ -8,6 +8,8 @@ networks:
 services:
   mongo.test:
     image: ghcr.io/linianhui/mongo:5.0
+    hostname: mongo.test
+    container_name: app-mongo
     restart: always
     ports:
       - '27017:27017'

@@ -8,6 +8,8 @@ networks:
 services:
   admin.mongo.test:
     build: ./image/admin.mongo/
+    hostname: admin.mongo.test
+    container_name: app-mongo-admin
     labels:
       - traefik.enable=true
       - traefik.http.routers.admin-mongo.rule=Host(`admin.mongo.test`)

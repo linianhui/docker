@@ -8,6 +8,8 @@ networks:
 services:
   mysql.test:
     image: ghcr.io/linianhui/mysql:8.0
+    hostname: mysql.test
+    container_name: app-mysql
     restart: always
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=no

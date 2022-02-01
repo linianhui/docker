@@ -8,6 +8,8 @@ networks:
 services:
   admin.mysql.test:
     image: ghcr.io/linianhui/mysql-admin:5.1
+    hostname: admin.mysql.test
+    container_name: app-mysql-admin
     restart: always
     environment:
       - PMA_HOST=mysql.test

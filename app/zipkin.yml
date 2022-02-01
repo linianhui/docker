@@ -8,6 +8,8 @@ networks:
 services:
   zipkin.test:
     image: ghcr.io/linianhui/zipkin:2.23
+    hostname: zipkin.test
+    container_name: app-zipkin
     labels:
       - traefik.enable=true
       - traefik.http.routers.zipkin.rule=Host(`zipkin.test`)

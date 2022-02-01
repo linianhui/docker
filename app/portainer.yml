@@ -8,6 +8,8 @@ networks:
 services:
   portainer.test:
     image: ghcr.io/linianhui/portainer-ce:2.11.0
+    hostname: portainer.test
+    container_name: app-portainer
     restart: on-failure
     command: --host unix:///var/run/docker.sock
     volumes:
