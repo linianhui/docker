@@ -7,10 +7,14 @@ networks:
 
 services:
   mongo.test:
-    build: ./image/mongo/
+    image: ghcr.io/linianhui/mongo:5.0
     restart: always
     ports:
       - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+      - MONGO_INITDB_DATABASE=default
     volumes:
       - volume_mongo-db:/data/db
       - volume_mongo-configdb:/data/configdb

@@ -7,7 +7,7 @@ networks:
 
 services:
   zipkin.test:
-    build: ./image/zipkin/
+    image: ghcr.io/linianhui/zipkin:2.23
     labels:
       - traefik.enable=true
       - traefik.http.routers.zipkin.rule=Host(`zipkin.test`)
