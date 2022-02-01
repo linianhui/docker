@@ -2,6 +2,8 @@
 # https://github.com/jenkinsci/docker/blob/master/README.md
 FROM jenkins/jenkins:2.332
 
+USER root
+
 COPY sources.list /etc/apt/sources.list
 
 RUN apt-get update \
