@@ -22,7 +22,6 @@ LABEL_BASE_NAME=org.opencontainers.image.base.name
 LABEL_BASE_DIGEST=org.opencontainers.image.base.digest
 
 function init(){
-    echo -e "rm $GREEN$IMAGE_PATH_FILE$END"
     __rm $IMAGE_PATH_FILE
     for dir in $@; do
         echo $dir >> $IMAGE_PATH_FILE
@@ -32,7 +31,6 @@ function init(){
 
 function build(){
     COMMIT_SHA=$1
-    echo -e "rm $GREEN$IMAGE_TAGS_FILE$END"
     __rm $IMAGE_TAGS_FILE
     __cat_green $IMAGE_PATH_FILE
     while read line
