@@ -115,7 +115,7 @@ function __rm(){
     if [ -f "$1" ]; then
       rm $1
     else
-      echo -e "\n$GREEN$1$END not exists"
+      echo -e "$GREEN$1$END not exists"
     fi
 }
 
