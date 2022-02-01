@@ -23,6 +23,7 @@ LABEL_BASE_DIGEST=org.opencontainers.image.base.digest
 
 function init(){
     echo -e "rm $GREEN$IMAGE_PATH_FILE$END"
+    __rm $IMAGE_PATH_FILE
     for dir in $@; do
         echo $dir >> $IMAGE_PATH_FILE
     done
@@ -32,7 +33,7 @@ function init(){
 function build(){
     COMMIT_SHA=$1
     echo -e "rm $GREEN$IMAGE_TAGS_FILE$END"
-    rm $IMAGE_TAGS_FILE
+    __rm $IMAGE_TAGS_FILE
     __cat_green $IMAGE_PATH_FILE
     while read line
     do
@@ -109,6 +110,15 @@ function __cat_green(){
     do
         echo -e "$GREEN$line$END"
     done < $1
+}
+
+function __rm(){
+    echo -e "\nrm $GREEN$1$END"
+    if [ -f "$1" ]; then
+      rm $1
+    else
+      echo -e "\n$GREEN$1$END not exists"
+    fi
 }
 
 case $1 in
