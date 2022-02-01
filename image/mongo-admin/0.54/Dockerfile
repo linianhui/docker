@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/mongo-express/
 # https://github.com/mongo-express/mongo-express-docker/blob/master/Dockerfile
-FROM mongo-express
+FROM mongo-express:0.54
 
 ENV ME_CONFIG_BASICAUTH_USERNAME=root \
     ME_CONFIG_BASICAUTH_PASSWORD=1234 \

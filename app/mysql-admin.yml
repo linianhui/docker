@@ -11,11 +11,6 @@ services:
     hostname: admin.mysql.test
     container_name: app-mysql-admin
     restart: always
-    environment:
-      - PMA_HOST=mysql.test
-      - PMA_PORT=3306
-      - MYSQL_ROOT_PASSWORD=1234
-      - PMA_ARBITRARY=1
     volumes:
       - volume_admin-mysql:/sessions
     labels:

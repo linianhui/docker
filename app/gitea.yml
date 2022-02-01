@@ -7,7 +7,9 @@ networks:
 
 services:
   gitea.test:
-    build: ./image/gitea/
+    image: ghcr.io/linianhui/gitea:1.16
+    hostname: gitea.test
+    container_name: app-gitea
     restart: always
     volumes:
       - volume_gitea:/data

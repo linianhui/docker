@@ -7,7 +7,9 @@ networks:
 
 services:
   jenkins.test:
-    build: ./image/jenkins/
+    image: ghcr.io/linianhui/jenkins:2.332
+    hostname: jenkins.test
+    container_name: app-jenkins
     volumes:
       - volume_jenkins:/var/jenkins_home
     labels:

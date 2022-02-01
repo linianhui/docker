@@ -7,7 +7,7 @@ networks:
 
 services:
   admin.mongo.test:
-    build: ./image/admin.mongo/
+    image: ghcr.io/linianhui/mongo-admin:0.54
     hostname: admin.mongo.test
     container_name: app-mongo-admin
     labels:
