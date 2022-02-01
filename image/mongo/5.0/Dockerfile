@@ -1,4 +1,5 @@
 # https://hub.docker.com/_/mongo/
+# https://github.com/docker-library/mongo
 FROM mongo:5.0
 
 COPY sources.list /etc/apt/sources.list
