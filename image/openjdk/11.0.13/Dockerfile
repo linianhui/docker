@@ -1,7 +1,7 @@
 # https://hub.docker.com/_/openjdk
 FROM openjdk:11.0.13-bullseye
 
-COPY sources.list /etc/apt/sources.list
+ADD https://github.com/linianhui/docker/raw/main/image/debian/bullseye.list /etc/apt/sources.list
 
 RUN apt-get update \
     && apt-get -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils tini\
