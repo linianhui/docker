@@ -7,7 +7,7 @@ networks:
 
 services:
   echo.test:
-    build: ./image/echo/
+    image: ghcr.io/linianhui/http-echo
     labels:
       - traefik.enable=true
       - traefik.http.routers.echo.rule=Host(`echo.test`)
