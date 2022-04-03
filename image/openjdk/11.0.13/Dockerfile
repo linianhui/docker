@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get -y clean
 
-ENV JAVA_DEBUG_OPTIONS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
+ENV JAVA_DEBUG_OPTIONS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005'
 
 RUN echo 'alias ja="java -jar /arthas/arthas-boot.jar"' >> ~/.bashrc
 

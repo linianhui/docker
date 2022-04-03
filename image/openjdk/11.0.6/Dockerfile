@@ -6,7 +6,7 @@ LABEL DOCKERFILE="https://github.com/linianhui/docker/tree/main/image/openjdk/11
 
 COPY sources.list /etc/apt/sources.list
 
-ENV JAVA_DEBUG_OPTIONS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005'
+ENV JAVA_DEBUG_OPTIONS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5005'
 
 RUN echo 'alias ja="java -jar /arthas/arthas-boot.jar"' >> ~/.bashrc
 
