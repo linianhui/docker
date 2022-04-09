@@ -2,10 +2,6 @@ FROM ghcr.io/linianhui/openjdk:8u322
 
 WORKDIR /hbase
 
-VOLUME [ "/data" ]
-
-COPY hbase-site.xml /hbase/conf/hbase-site.xml
-
 # https://hbase.apache.org/
 ENV HBASE_VERSION=2.4.11
 ENV HBASE_DOWNLOAD_URL=https://dlcdn.apache.org/hbase/2.4.11/hbase-2.4.11-bin.tar.gz
@@ -15,6 +11,10 @@ RUN wget -q -O /tmp/hbase.tar.gz $HBASE_DOWNLOAD_URL \
     && rm -f /tmp/hbase.tar.gz
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+COPY hbase-site.xml /hbase/conf/hbase-site.xml
+
+VOLUME [ "/data" ]
 
 ENTRYPOINT ["sh", "/docker-entrypoint.sh"]
 
