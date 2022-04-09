@@ -2,6 +2,10 @@ FROM ghcr.io/linianhui/openjdk:8u322
 
 WORKDIR /hbase
 
+VOLUME [ "/data" ]
+
+COPY hbase-site.xml /hbase/conf/hbase-site.xml
+
 # https://hbase.apache.org/
 ENV HBASE_VERSION=2.3.7
 ENV HBASE_DOWNLOAD_URL=https://dlcdn.apache.org/hbase/2.3.7/hbase-2.3.7-bin.tar.gz

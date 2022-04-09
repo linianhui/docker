@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- https://hbase.apache.org/book.html#standalone_dist -->
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hbase.tmp.dir</name>
+    <value>/data</value>
+  </property>
+  <property>
+    <name>hbase.unsafe.stream.capability.enforce</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper-1.test</value>
+  </property>
+  <property>
+    <name>hbase.regionserver.slowlog.systable.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.regionserver.slowlog.buffer.enabled</name>
+    <value>true</value>
+  </property>
+
+</configuration>
