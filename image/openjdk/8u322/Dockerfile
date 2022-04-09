@@ -4,7 +4,7 @@ FROM openjdk:8u322-bullseye
 ADD https://linianhui.github.io/docker/file/debian-bullseye-sources.list /etc/apt/sources.list
 
 RUN apt-get update \
-    && apt-get -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils tini\
+    && apt-get -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils tini tree\
     && apt-get -y autoremove \
     && apt-get -y clean
 
