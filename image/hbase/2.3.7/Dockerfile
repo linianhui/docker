@@ -1,4 +1,4 @@
-FROM ghcr.io/linianhui/openjdk:8u312
+FROM ghcr.io/linianhui/openjdk:8u322
 
 WORKDIR /hbase
 
