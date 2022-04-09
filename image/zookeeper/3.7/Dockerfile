@@ -4,6 +4,8 @@ FROM zookeeper:3.7
 
 COPY sources.list /etc/apt/sources.list
 
+COPY zoo.cfg /conf/
+
 RUN apt update \
     && apt -y install curl wget unzip tcpdump net-tools iproute2 vim jq coreutils tree\
     && apt -y autoremove \
