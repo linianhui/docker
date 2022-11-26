@@ -1,0 +1,17 @@
+version: '3.9'
+
+networks:
+  default:
+    external: true
+    name: traefik-network
+
+services:
+  openwrt.lan:
+    image: openwrtorg/rootfs:x86-64-22.03.2
+    hostname: openwrt.lan
+    container_name: app-zipkin
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.openwrt.rule=Host(`openwrt.lan`)
+      - traefik.http.routers.openwrt.entrypoints=http
+      - traefik.http.services.openwrt.loadbalancer.server.port=80
