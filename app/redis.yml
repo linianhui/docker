@@ -6,9 +6,9 @@ networks:
     name: traefik-network
 
 services:
-  redis.test:
+  redis.lan:
     image: ghcr.io/linianhui/redis:6.2
-    hostname: redis.test
+    hostname: redis.lan
     container_name: app-redis
     restart: always
     ports:

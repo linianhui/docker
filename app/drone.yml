@@ -6,13 +6,13 @@ networks:
     name: traefik-network
 
 services:
-  drone.test:
+  drone.lan:
     build: ./image/drone/
     volumes:
       - volume_drone:/data
     labels:
       - traefik.enable=true
-      - traefik.http.routers.drone.rule=Host(`drone.test`)
+      - traefik.http.routers.drone.rule=Host(`drone.lan`)
       - traefik.http.routers.drone.entrypoints=http
       - traefik.http.services.drone.loadbalancer.server.port=80
 

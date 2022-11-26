@@ -20,21 +20,21 @@ Update local `/etc/hosts`.
 
 ```bash
 cat <<EOF >> /etc/hosts
-127.0.0.1 traefik.test
-127.0.0.1 zipkin.test
-127.0.0.1 registry.test
-127.0.0.1 portainer.test
-127.0.0.1 jenkins.test
-127.0.0.1 gitea.test
-127.0.0.1 echo.test
-127.0.0.1 netdata.test
-127.0.0.1 cadvisor.test
-127.0.0.1 drone.test
-127.0.0.1 mysql.test
-127.0.0.1 admin.mysql.test
-127.0.0.1 redis.test
-127.0.0.1 admin.redis.test
-127.0.0.1 mongo.test
-127.0.0.1 admin.mongo.test
+127.0.0.1 traefik.lan
+127.0.0.1 zipkin.lan
+127.0.0.1 registry.lan
+127.0.0.1 portainer.lan
+127.0.0.1 jenkins.lan
+127.0.0.1 gitea.lan
+127.0.0.1 echo.lan
+127.0.0.1 netdata.lan
+127.0.0.1 cadvisor.lan
+127.0.0.1 drone.lan
+127.0.0.1 mysql.lan
+127.0.0.1 admin.mysql.lan
+127.0.0.1 redis.lan
+127.0.0.1 admin.redis.lan
+127.0.0.1 mongo.lan
+127.0.0.1 admin.mongo.lan
 EOF
 ```

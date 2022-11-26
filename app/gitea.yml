@@ -6,16 +6,16 @@ networks:
     name: traefik-network
 
 services:
-  gitea.test:
+  gitea.lan:
     image: ghcr.io/linianhui/gitea:1.16
-    hostname: gitea.test
+    hostname: gitea.lan
     container_name: app-gitea
     restart: always
     volumes:
       - volume_gitea:/data
     labels:
       - traefik.enable=true
-      - traefik.http.routers.gitea.rule=Host(`gitea.test`)
+      - traefik.http.routers.gitea.rule=Host(`gitea.lan`)
       - traefik.http.routers.gitea.entrypoints=http
       - traefik.http.services.gitea.loadbalancer.server.port=80
 

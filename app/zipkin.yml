@@ -6,12 +6,12 @@ networks:
     name: traefik-network
 
 services:
-  zipkin.test:
+  zipkin.lan:
     image: ghcr.io/linianhui/zipkin:2.23
-    hostname: zipkin.test
+    hostname: zipkin.lan
     container_name: app-zipkin
     labels:
       - traefik.enable=true
-      - traefik.http.routers.zipkin.rule=Host(`zipkin.test`)
+      - traefik.http.routers.zipkin.rule=Host(`zipkin.lan`)
       - traefik.http.routers.zipkin.entrypoints=http
       - traefik.http.services.zipkin.loadbalancer.server.port=9411

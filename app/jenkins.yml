@@ -6,15 +6,15 @@ networks:
     name: traefik-network
 
 services:
-  jenkins.test:
+  jenkins.lan:
     image: ghcr.io/linianhui/jenkins:2.332
-    hostname: jenkins.test
+    hostname: jenkins.lan
     container_name: app-jenkins
     volumes:
       - volume_jenkins:/var/jenkins_home
     labels:
       - traefik.enable=true
-      - traefik.http.routers.jenkins.rule=Host(`jenkins.test`)
+      - traefik.http.routers.jenkins.rule=Host(`jenkins.lan`)
       - traefik.http.routers.jenkins.entrypoints=http
       - traefik.http.services.jenkins.loadbalancer.server.port=8080
 

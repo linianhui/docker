@@ -6,10 +6,10 @@ networks:
     name: traefik-network
 
 services:
-  echo.test:
+  echo.lan:
     image: ghcr.io/linianhui/http-echo
     labels:
       - traefik.enable=true
-      - traefik.http.routers.echo.rule=Host(`echo.test`)
+      - traefik.http.routers.echo.rule=Host(`echo.lan`)
       - traefik.http.routers.echo.entrypoints=http
       - traefik.http.services.echo.loadbalancer.server.port=80

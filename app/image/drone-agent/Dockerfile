@@ -4,6 +4,6 @@
 FROM drone/agent
 
 # http://docs.drone.io/installation/
-ENV DRONE_RPC_HOST=drone.test \
+ENV DRONE_RPC_HOST=drone.lan \
     DRONE_RPC_PROTO=9000 \
     DRONE_RPC_SECRET=1234

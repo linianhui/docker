@@ -6,7 +6,7 @@ networks:
     name: traefik-network
 
 services:
-  docker-api.test:
+  docker-api.lan:
     build: ./image/docker-api/
     restart: always
     ports:

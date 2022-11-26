@@ -7,7 +7,7 @@ networks:
 
 services:
   # https://github.com/netdata/netdata/tree/master/packaging/docker
-  netdata.test:
+  netdata.lan:
     build: ./image/netdata/
     cap_add:
       - SYS_PTRACE
@@ -21,6 +21,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
       - traefik.enable=true
-      - traefik.http.routers.netdata.rule=Host(`netdata.test`)
+      - traefik.http.routers.netdata.rule=Host(`netdata.lan`)
       - traefik.http.routers.netdata.entrypoints=http
       - traefik.http.services.netdata.loadbalancer.server.port=80

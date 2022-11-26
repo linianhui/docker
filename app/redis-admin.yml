@@ -6,12 +6,12 @@ networks:
     name: traefik-network
 
 services:
-  admin.redis.test:
+  admin.redis.lan:
     image: ghcr.io/linianhui/redis-admin
-    hostname: admin.redis.test
+    hostname: admin.redis.lan
     container_name: app-redis-admin
     labels:
       - traefik.enable=true
-      - traefik.http.routers.admin-redis.rule=Host(`admin.redis.test`)
+      - traefik.http.routers.admin-redis.rule=Host(`admin.redis.lan`)
       - traefik.http.routers.admin-redis.entrypoints=http
       - traefik.http.services.admin-redis.loadbalancer.server.port=5001

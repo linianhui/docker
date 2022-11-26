@@ -6,14 +6,14 @@ networks:
     name: traefik-network
 
 services:
-  registry.test:
+  registry.lan:
     build: ./image/registry/
     restart: always
     volumes:
       - volume_registry:/var/lib/registry
     labels:
       - traefik.enable=true
-      - traefik.http.routers.registry.rule=Host(`registry.test`)
+      - traefik.http.routers.registry.rule=Host(`registry.lan`)
       - traefik.http.routers.registry.entrypoints=http
       - traefik.http.services.registry.loadbalancer.server.port=80
 

@@ -6,9 +6,9 @@ networks:
     name: traefik-network
 
 services:
-  mongo.test:
+  mongo.lan:
     image: ghcr.io/linianhui/mongo:5.0
-    hostname: mongo.test
+    hostname: mongo.lan
     container_name: app-mongo
     restart: always
     ports:

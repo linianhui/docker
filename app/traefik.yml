@@ -6,9 +6,9 @@ networks:
     name: traefik-network
 
 services:
-  traefik.test:
+  traefik.lan:
     image: ghcr.io/linianhui/traefik:v2.9
-    hostname: traefik.test
+    hostname: traefik.lan
     container_name: app-traefik
     restart: always
     ports:
@@ -19,6 +19,6 @@ services:
     # https://docs.traefik.io/reference/dynamic-configuration/docker/
     labels:
       - traefik.enable=true
-      - traefik.http.routers.traefik.rule=Host(`traefik.test`)
+      - traefik.http.routers.traefik.rule=Host(`traefik.lan`)
       - traefik.http.routers.traefik.entrypoints=http
       - traefik.http.routers.traefik.service=api@internal

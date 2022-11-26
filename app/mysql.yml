@@ -6,9 +6,9 @@ networks:
     name: traefik-network
 
 services:
-  mysql.test:
+  mysql.lan:
     image: ghcr.io/linianhui/mysql:8.0
-    hostname: mysql.test
+    hostname: mysql.lan
     container_name: app-mysql
     restart: always
     environment:

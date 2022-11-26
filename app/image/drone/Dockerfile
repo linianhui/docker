@@ -5,14 +5,14 @@ FROM drone/drone:1.6.3
 
 # http://docs.drone.io
 ENV DRONE_SERVER_PROTO=http \
-    DRONE_SERVER_HOST=drone.test \
+    DRONE_SERVER_HOST=drone.lan \
     DRONE_GIT_ALWAYS_AUTH=false \
-    DRONE_RPC_SECRET=1234 
+    DRONE_RPC_SECRET=1234
 
 
 # https://docs.drone.io/installation/providers/gitea/
-# callback: http://drone.test/login
-ENV DRONE_GITEA_SERVER=http://gitea.test \
+# callback: http://drone.lan/login
+ENV DRONE_GITEA_SERVER=http://gitea.lan \
     DRONE_GITEA_CLIENT_ID=e713eac4-fb12-4365-98a8-f4b40a0023f5 \
     DRONE_GITEA_CLIENT_SECRET=KsN2j3tfbGyhOMgTZcsGKNU5bspTx9gImoIrLuJG0XY=
 
