@@ -9,7 +9,7 @@ services:
   openwrt.lan:
     image: ghcr.io/linianhui/openwrt:x86-64-22.03.2
     hostname: openwrt.lan
-    container_name: app-zipkin
+    container_name: app-openwrt
     labels:
       - traefik.enable=true
       - traefik.http.routers.openwrt.rule=Host(`openwrt.lan`)
