@@ -7,7 +7,7 @@ networks:
 
 services:
   openwrt.lan:
-    image: openwrtorg/rootfs:x86-64-22.03.2
+    image: ghcr.io/linianhui/openwrt:x86-64-22.03.2
     hostname: openwrt.lan
     container_name: app-zipkin
     labels:
