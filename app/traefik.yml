@@ -7,7 +7,7 @@ networks:
 
 services:
   traefik.lan:
-    image: ghcr.io/linianhui/traefik:v2.9
+    image: ghcr.io/linianhui/traefik:v2.10
     hostname: traefik.lan
     container_name: app-traefik
     restart: always
