@@ -7,5 +7,3 @@ services:
     container_name: app-kms
     restart: on-failure
     network_mode: host
-    ports:
-      - "1688:1688"
