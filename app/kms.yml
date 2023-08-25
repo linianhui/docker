@@ -5,5 +5,5 @@ services:
     image: ghcr.io/linianhui/kms
     hostname: kms.test
     container_name: app-kms
-    restart: on-failure
+    restart: always
     network_mode: host
