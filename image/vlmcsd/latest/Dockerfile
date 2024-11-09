@@ -6,7 +6,7 @@ RUN apk add --no-cache git make build-base && \
     make
 
 FROM alpine:latest
-WORKDIR /app/
-COPY --from=builder /root/vlmcsd/bin/vlmcsd /app/vlmcsd
+WORKDIR /root/
+COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
 EXPOSE 1688/tcp
-CMD [ "/app/vlmcsd", "-D", "-d" ]
+CMD [ "/usr/bin/vlmcsd", "-D", "-d" ]

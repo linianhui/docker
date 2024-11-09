@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  vlmcsd.test:
+    image: ghcr.io/linianhui/vlmcsd
+    hostname: vlmcsd.test
+    container_name: app-vlmcsd
+    restart: always
+    network_mode: host
