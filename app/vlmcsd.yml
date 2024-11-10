@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   vlmcsd.test:
-    image: ghcr.io/linianhui/vlmcsd
+    image: ghcr.io/linianhui/vlmcsd:1113-2020-03-28
     hostname: vlmcsd.test
     container_name: app-vlmcsd
     restart: always
