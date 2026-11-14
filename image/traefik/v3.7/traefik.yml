@@ -21,5 +21,3 @@ providers:
     endpoint: 'unix:///var/run/docker.sock'
     exposedByDefault: false
     useBindPortIP: false
-    swarmMode: false
-    swarmModeRefreshSeconds: 10
