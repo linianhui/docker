@@ -8,6 +8,8 @@ services:
     image: ghcr.io/linianhui/openwrt:x86-64-25.12.6
     hostname: openwrt.lan
     container_name: app-openwrt
+    restart: always
+    command: /sbin/init
     labels:
       - traefik.enable=true
       - traefik.http.routers.openwrt.rule=Host(`openwrt.lan`)
