@@ -1,13 +1,9 @@
-version: '3.9'
-
 networks:
   default:
     external: true
     name: traefik-network
 
-
 services:
-
   gitlab-runner: # ./entrypoint register
     build: ./image/gitlab-runner/
     restart: always
@@ -17,7 +13,6 @@ services:
       - volume_gitlab-runner-home:/home/gitlab-runner
       - volume_gitlab-runner-etc:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
-
 
 volumes:
   volume_gitlab-runner-home:

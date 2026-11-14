@@ -1,19 +1,15 @@
-version: '3.9'
-
 networks:
   default:
     external: true
     name: traefik-network
 
-
 services:
-
   gitlab-ce:
     build: ./image/gitlab-ce/
     networks:
       - network_default
     ports:
-      - "10080:10080"
+      - '10080:10080'
     environment:
       # https://docs.gitlab.com/omnibus/docker/#pre-configure-docker-container
       GITLAB_OMNIBUS_CONFIG: |
@@ -22,7 +18,6 @@ services:
       - volume_gitlab-ce-etc:/etc/gitlab
       - volume_gitlab-ce-log:/var/log/gitlab
       - volume_gitlab-ce-data:/var/opt/gitlab
-
 
 volumes:
   volume_gitlab-ce-etc:
