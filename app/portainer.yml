@@ -7,7 +7,7 @@ networks:
 
 services:
   portainer.lan:
-    image: ghcr.io/linianhui/portainer-ce:2.18.4
+    image: ghcr.io/linianhui/portainer-ce:2.45.3
     hostname: portainer.lan
     container_name: app-portainer
     restart: on-failure

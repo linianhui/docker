@@ -1,0 +1,23 @@
+Types: deb
+URIs: mirror+https://mirrors.cernet.edu.cn/api/apt/mirrorlist/debian
+Suites: trixie trixie-updates trixie-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# Types: deb-src
+# URIs: mirror+https://mirrors.cernet.edu.cn/api/apt/mirrorlist/debian
+# Suites: trixie trixie-updates trixie-backports
+# Components: main contrib non-free non-free-firmware
+# Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: mirror+https://mirrors.cernet.edu.cn/api/apt/mirrorlist/debian-security?official_index=1
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# Types: deb-src
+# URIs: mirror+https://mirrors.cernet.edu.cn/api/apt/mirrorlist/debian-security?official_index=1
+# Suites: trixie-security
+# Components: main contrib non-free non-free-firmware
+# Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
