@@ -6,6 +6,10 @@ global:
 log:
   level: DEBUG
 
+accessLog:
+  # JSON format
+  format: json
+
 api:
   dashboard: true
   insecure: true
